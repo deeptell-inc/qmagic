@@ -9,24 +9,20 @@
 import argparse, runpy, subprocess, sys, time
 from qmagic.paths import RESULTS, DATA, EXTERNAL
 
-STEPS_FAST = [("factory reconstruction + two-level validation", "qmagic.factory", []),
+STEPS_FAST = [("measured p_L table (data-block calibration)", "qmagic.calib_table", []),
+              ("factory reconstruction + two-level validation", "qmagic.factory", []),
               ("correlated-matching parameter set (params_corr.json)", "qmagic.rerun_corr", []),
               ("d2-scan parameter set (params_corr_d2.json)", "qmagic.build_params_d2scan", []),
-              ("v3/v4 parameter set (full factory grid, physical d_req, bias constraint)", "qmagic.build_params_v3", []),
-              ("per-p calibration fits (claim (a) sensitivity)", "qmagic.calib_perp", []),
-              ("claims (b)/(c) + sensitivity variants (kappa(u), growth)", "qmagic.claims_v3", []),
+              ("parameter set: full factory grid, physical d_req, T-gate correction of cultivation", "qmagic.build_params_v3", []),
+              ("claims: savings, N_max ratios, proxy/routing/growth/T-calibration variants", "qmagic.claims_v3", []),
               ("sensitivity (n_L, f_T, r_route, Gamma_max, precision, spacetime)", "qmagic.sensitivity_v3", []),
               ("acceptance cutoff under the mitigation budget", "qmagic.cutoff_v3", ["1.0"]),
-              ("Q3 hardware-Lambda mapping", "qmagic.q3_lambda", []),
+              ("hardware-Lambda mapping", "qmagic.q3_lambda", []),
               ("PEC: exact propagation (variance identity, bias)", "qmagic.pec_exact", []),
-              ("gap analysis + fig7", "qmagic.gap", []),
-              ("noise-model cost comparison + fig9", "qmagic.noise_costmodel", []),
-              ("fig6", "qmagic.fig6_d2scan", []), ("fig10", "qmagic.fig10_unified", []), ("fig11", "qmagic.fig11_floors", []),
-              # legacy (pre-v3) outputs kept for the lab notebook; not used by the paper
-              ("legacy costmodel (params_corr_d2 -> results.csv)", "qmagic.costmodel", ["params_corr_d2.json"]),
-              ("legacy Q5 N_max frontier", "qmagic.q5_nmax", ["params_corr_d2.json", "_corr_d2"]),
-              ("legacy Q1 pivot", "qmagic.pivot", ["results.csv", "11"]),
-              ("legacy fig1-3", "qmagic.plots", []), ("legacy fig5", "qmagic.fig5_q3", []), ("legacy fig8", "qmagic.fig8_bias", [])]
+              ("gap analysis + figure", "qmagic.gap", []),
+              ("noise-model comparison + figure", "qmagic.noise_costmodel", []),
+              ("figure: d2 scan", "qmagic.fig6_d2scan", []), ("figure: savings and circuit size", "qmagic.fig10_unified", []), ("figure: floors", "qmagic.fig11_floors", []),
+              ("manuscript numbers and table bodies", "qmagic.paper_numbers", [])]
 
 def run_module(mod, args):
     cmd = [sys.executable, "-m", mod, *args]; t0 = time.time()
@@ -47,7 +43,7 @@ def main():
     fails = 0
     if a.calib:   # sequential designs (~2 + ~4 min on 16 cores); outputs *_seq.json so the shipped calibrations stay the paper's inputs
         fails += run_module("qmagic.calib_gidney", []); fails += run_module("qmagic.calib_noise", [])
-        fails += run_module("qmagic.cultiv_enum", ["4"])          # exact d1=3 cultivation-stage floor (seconds)
+        fails += run_module("qmagic.cultiv_enum", ["4"])          # S-proxy enumeration of the d1=3 cultivation stage (seconds)
     if a.cultiv:
         if not EXTERNAL.exists(): sys.exit("external repo missing: run scripts/fetch_external.sh")
         fails += run_module("qmagic.cultiv_noise", [])

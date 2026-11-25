@@ -1,6 +1,6 @@
 {
  "provisional": false,
- "_note": "v3 (adversarial-review fixes): exit-only factory p_out; symmetric consumption; physical d_req; unified clock; Gidney-noise X+Z p_L. Rows with scaled=True are UNMEASURED extrapolations.",
+ "_note": "v5: measured p_L table; exit-only factory p_out on the full (dX,dZ,dm) grid; symmetric consumption; physical d_req; unified clock; cultivation errors = sampled S-proxy value corrected to actual T gates with the exact stage rates of Wan & Zapirain (eps_T = stage correction, eps_T_scale = pessimistic, eps_T_proxy = as sampled).",
  "p": [
   0.001,
   0.0005
@@ -35,10 +35,10 @@
  "r_route": 2.31,
  "N_e": 0.001,
  "pL_fit": {
-  "A": 0.3328104928876191,
-  "p_th": 0.010127085800220264,
-  "s": 0.9634912631753632,
-  "source": "calib_gidney.json (Gidney memory circuit, uniform_depolarizing incl. idle, X+Z, correlated matching)"
+  "A": 0.4585205816786884,
+  "p_th": 0.010404940801562042,
+  "s": 1.0015307177205024,
+  "source": "pL_table.json global fit (Gidney memory circuit, uniform_depolarizing incl. idle, X+Z, correlated matching); used only outside the measured table"
  },
  "distill": [
   {
@@ -46,8 +46,8 @@
    "p": 0.001,
    "d_req": 5,
    "qubits": 522,
-   "cycles_per_T": 22.6,
-   "eps_T": 0.003819628065185654,
+   "cycles_per_T": 22.2,
+   "eps_T": 0.004204207622426237,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -55,8 +55,8 @@
    "p": 0.001,
    "d_req": 5,
    "qubits": 530,
-   "cycles_per_T": 35.2,
-   "eps_T": 0.006164366046633507,
+   "cycles_per_T": 34.8,
+   "eps_T": 0.00684561409018225,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -64,8 +64,8 @@
    "p": 0.001,
    "d_req": 5,
    "qubits": 762,
-   "cycles_per_T": 22.1,
-   "eps_T": 0.005160587556227947,
+   "cycles_per_T": 21.7,
+   "eps_T": 0.005706755356556847,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -73,8 +73,8 @@
    "p": 0.001,
    "d_req": 5,
    "qubits": 770,
-   "cycles_per_T": 31.0,
-   "eps_T": 0.008418884323346365,
+   "cycles_per_T": 31.1,
+   "eps_T": 0.009353321803565628,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -82,8 +82,8 @@
    "p": 0.001,
    "d_req": 7,
    "qubits": 810,
-   "cycles_per_T": 24.5,
-   "eps_T": 0.0005511846785024588,
+   "cycles_per_T": 23.9,
+   "eps_T": 0.0004746074145152157,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -91,8 +91,8 @@
    "p": 0.001,
    "d_req": 7,
    "qubits": 818,
-   "cycles_per_T": 36.7,
-   "eps_T": 0.00042098238229704155,
+   "cycles_per_T": 36.2,
+   "eps_T": 0.0004109434392676192,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -100,8 +100,8 @@
    "p": 0.001,
    "d_req": 7,
    "qubits": 826,
-   "cycles_per_T": 55.4,
-   "eps_T": 0.0005804665707216383,
+   "cycles_per_T": 54.2,
+   "eps_T": 0.0005658255301619342,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -109,8 +109,8 @@
    "p": 0.001,
    "d_req": 7,
    "qubits": 1146,
-   "cycles_per_T": 23.8,
-   "eps_T": 0.0005358446493379798,
+   "cycles_per_T": 23.2,
+   "eps_T": 0.0004803618802673437,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -118,8 +118,8 @@
    "p": 0.001,
    "d_req": 7,
    "qubits": 1154,
-   "cycles_per_T": 30.9,
-   "eps_T": 0.0005241905841433248,
+   "cycles_per_T": 31.0,
+   "eps_T": 0.0005140807470590536,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -127,8 +127,8 @@
    "p": 0.001,
    "d_req": 7,
    "qubits": 1162,
-   "cycles_per_T": 42.9,
-   "eps_T": 0.0007333979391808132,
+   "cycles_per_T": 43.0,
+   "eps_T": 0.0007191660863135052,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -136,8 +136,8 @@
    "p": 0.001,
    "d_req": 7,
    "qubits": 1482,
-   "cycles_per_T": 25.4,
-   "eps_T": 0.0008143573274078664,
+   "cycles_per_T": 24.7,
+   "eps_T": 0.0007075427853261429,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -146,7 +146,7 @@
    "d_req": 7,
    "qubits": 1490,
    "cycles_per_T": 30.8,
-   "eps_T": 0.0006507098861869842,
+   "eps_T": 0.0006381035255187406,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -155,7 +155,7 @@
    "d_req": 7,
    "qubits": 1498,
    "cycles_per_T": 42.5,
-   "eps_T": 0.0009104196043963064,
+   "eps_T": 0.0008927128604627743,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -163,8 +163,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 1146,
-   "cycles_per_T": 26.9,
-   "eps_T": 0.0007236960805220294,
+   "cycles_per_T": 26.0,
+   "eps_T": 0.0005548684830194439,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -172,8 +172,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 1154,
-   "cycles_per_T": 38.5,
-   "eps_T": 6.981272960748797e-05,
+   "cycles_per_T": 37.8,
+   "eps_T": 5.902237956467715e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -181,8 +181,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 1162,
-   "cycles_per_T": 58.9,
-   "eps_T": 7.537985410632775e-05,
+   "cycles_per_T": 57.3,
+   "eps_T": 5.993097425460725e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -190,8 +190,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 1170,
-   "cycles_per_T": 83.9,
-   "eps_T": 0.00010749569089829603,
+   "cycles_per_T": 81.0,
+   "eps_T": 8.581798471807289e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -199,8 +199,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 1578,
-   "cycles_per_T": 25.9,
-   "eps_T": 0.0005324699406670241,
+   "cycles_per_T": 25.2,
+   "eps_T": 0.00041097269367840195,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -209,7 +209,7 @@
    "d_req": 9,
    "qubits": 1586,
    "cycles_per_T": 31.1,
-   "eps_T": 3.83503211853764e-05,
+   "eps_T": 2.944013859407235e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -217,8 +217,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 1594,
-   "cycles_per_T": 43.0,
-   "eps_T": 5.319464968389642e-05,
+   "cycles_per_T": 43.1,
+   "eps_T": 4.0582402991429234e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -226,8 +226,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 1602,
-   "cycles_per_T": 55.5,
-   "eps_T": 6.83951345488154e-05,
+   "cycles_per_T": 55.6,
+   "eps_T": 5.218120989225472e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -235,8 +235,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 2010,
-   "cycles_per_T": 28.2,
-   "eps_T": 0.0009960175339805977,
+   "cycles_per_T": 27.2,
+   "eps_T": 0.0007583499427417095,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -244,8 +244,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 2018,
-   "cycles_per_T": 30.9,
-   "eps_T": 4.642295482959469e-05,
+   "cycles_per_T": 31.0,
+   "eps_T": 3.5502437578882606e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -254,7 +254,7 @@
    "d_req": 9,
    "qubits": 2026,
    "cycles_per_T": 42.5,
-   "eps_T": 6.462333687229371e-05,
+   "eps_T": 4.9251171754693956e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -263,7 +263,7 @@
    "d_req": 9,
    "qubits": 2034,
    "cycles_per_T": 54.6,
-   "eps_T": 8.307634271087494e-05,
+   "eps_T": 6.331289055205858e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -271,8 +271,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 2442,
-   "cycles_per_T": 30.9,
-   "eps_T": 0.001739424289696867,
+   "cycles_per_T": 29.5,
+   "eps_T": 0.0013190939479945651,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -280,8 +280,8 @@
    "p": 0.001,
    "d_req": 9,
    "qubits": 2450,
-   "cycles_per_T": 31.0,
-   "eps_T": 5.4754458584604926e-05,
+   "cycles_per_T": 31.1,
+   "eps_T": 4.189919766006689e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -290,7 +290,7 @@
    "d_req": 9,
    "qubits": 2458,
    "cycles_per_T": 42.5,
-   "eps_T": 7.61579393793177e-05,
+   "eps_T": 5.804093245531661e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -299,7 +299,7 @@
    "d_req": 9,
    "qubits": 2466,
    "cycles_per_T": 54.6,
-   "eps_T": 9.790481089533287e-05,
+   "eps_T": 7.461270158115596e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -307,8 +307,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 1530,
-   "cycles_per_T": 29.9,
-   "eps_T": 0.0014337649603619607,
+   "cycles_per_T": 28.6,
+   "eps_T": 0.0010956473366237063,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -316,8 +316,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 1538,
-   "cycles_per_T": 40.4,
-   "eps_T": 6.865096679931071e-05,
+   "cycles_per_T": 39.6,
+   "eps_T": 6.160778106023557e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -325,8 +325,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 1546,
-   "cycles_per_T": 62.6,
-   "eps_T": 5.216253975626195e-05,
+   "cycles_per_T": 60.6,
+   "eps_T": 4.246311676348036e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -334,8 +334,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 1554,
-   "cycles_per_T": 90.6,
-   "eps_T": 8.014841575576526e-05,
+   "cycles_per_T": 86.9,
+   "eps_T": 6.544277921005648e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -343,8 +343,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 2058,
-   "cycles_per_T": 28.6,
-   "eps_T": 0.0010612119290658306,
+   "cycles_per_T": 27.5,
+   "eps_T": 0.0008148639142269154,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -352,8 +352,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 2066,
-   "cycles_per_T": 31.2,
-   "eps_T": 3.672466840853872e-06,
+   "cycles_per_T": 31.3,
+   "eps_T": 2.362996412652585e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -361,8 +361,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 2074,
-   "cycles_per_T": 43.1,
-   "eps_T": 4.353724976979834e-06,
+   "cycles_per_T": 43.2,
+   "eps_T": 2.287864647509963e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -370,8 +370,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 2082,
-   "cycles_per_T": 55.7,
-   "eps_T": 5.592182614755359e-06,
+   "cycles_per_T": 55.8,
+   "eps_T": 2.938246546069223e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -379,8 +379,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 2586,
-   "cycles_per_T": 31.7,
-   "eps_T": 0.0019885424997717616,
+   "cycles_per_T": 30.2,
+   "eps_T": 0.0015057434265401959,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -388,8 +388,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 2594,
-   "cycles_per_T": 31.0,
-   "eps_T": 4.000996181030558e-06,
+   "cycles_per_T": 31.1,
+   "eps_T": 2.314149369131435e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -398,7 +398,7 @@
    "d_req": 11,
    "qubits": 2602,
    "cycles_per_T": 42.5,
-   "eps_T": 5.054177023233741e-06,
+   "eps_T": 2.553339989219694e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -407,7 +407,7 @@
    "d_req": 11,
    "qubits": 2610,
    "cycles_per_T": 54.6,
-   "eps_T": 6.4877827257170395e-06,
+   "eps_T": 3.2725439501612996e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -415,8 +415,8 @@
    "p": 0.001,
    "d_req": 11,
    "qubits": 3114,
-   "cycles_per_T": 35.4,
-   "eps_T": 0.003477003421990865,
+   "cycles_per_T": 33.4,
+   "eps_T": 0.002621220188275597,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -425,7 +425,7 @@
    "d_req": 11,
    "qubits": 3122,
    "cycles_per_T": 31.2,
-   "eps_T": 4.733942227885812e-06,
+   "eps_T": 2.796914374769699e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -434,7 +434,7 @@
    "d_req": 11,
    "qubits": 3130,
    "cycles_per_T": 42.5,
-   "eps_T": 5.881542559427189e-06,
+   "eps_T": 2.9685069338203363e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -443,7 +443,7 @@
    "d_req": 11,
    "qubits": 3138,
    "cycles_per_T": 54.6,
-   "eps_T": 7.5511213237788866e-06,
+   "eps_T": 3.805967122572085e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -451,8 +451,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 1962,
-   "cycles_per_T": 33.4,
-   "eps_T": 0.0026837061091624648,
+   "cycles_per_T": 31.8,
+   "eps_T": 0.00204538594284176,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -460,8 +460,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 1970,
-   "cycles_per_T": 42.4,
-   "eps_T": 0.00010374609686358838,
+   "cycles_per_T": 41.4,
+   "eps_T": 9.487442494182652e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -469,8 +469,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 1978,
-   "cycles_per_T": 66.5,
-   "eps_T": 6.761587805648173e-05,
+   "cycles_per_T": 64.1,
+   "eps_T": 5.632141017519743e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -478,8 +478,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 1986,
-   "cycles_per_T": 97.7,
-   "eps_T": 0.0001022165840416367,
+   "cycles_per_T": 93.2,
+   "eps_T": 8.508041486643414e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -487,8 +487,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 2586,
-   "cycles_per_T": 31.8,
-   "eps_T": 0.0020369829957490593,
+   "cycles_per_T": 30.4,
+   "eps_T": 0.0015569761300231466,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -496,8 +496,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 2594,
-   "cycles_per_T": 31.4,
-   "eps_T": 1.2562475573130172e-06,
+   "cycles_per_T": 31.5,
+   "eps_T": 1.3852995998098194e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -506,7 +506,7 @@
    "d_req": 13,
    "qubits": 2602,
    "cycles_per_T": 43.3,
-   "eps_T": 5.426508529193796e-07,
+   "eps_T": 3.51565208389637e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -514,8 +514,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 2610,
-   "cycles_per_T": 55.9,
-   "eps_T": 6.8628806393356e-07,
+   "cycles_per_T": 56.0,
+   "eps_T": 4.4271916288529667e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -523,8 +523,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 3210,
-   "cycles_per_T": 36.0,
-   "eps_T": 0.0037645413427631613,
+   "cycles_per_T": 33.9,
+   "eps_T": 0.002836887008707878,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -532,8 +532,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 3218,
-   "cycles_per_T": 31.2,
-   "eps_T": 8.977116552344455e-07,
+   "cycles_per_T": 31.3,
+   "eps_T": 8.672429833156414e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -542,7 +542,7 @@
    "d_req": 13,
    "qubits": 3226,
    "cycles_per_T": 42.5,
-   "eps_T": 4.385736429579623e-07,
+   "eps_T": 1.765037036527417e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -551,7 +551,7 @@
    "d_req": 13,
    "qubits": 3234,
    "cycles_per_T": 54.6,
-   "eps_T": 5.517459552573101e-07,
+   "eps_T": 2.1492165014347364e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -559,8 +559,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 3834,
-   "cycles_per_T": 40.9,
-   "eps_T": 0.006525122125844662,
+   "cycles_per_T": 38.2,
+   "eps_T": 0.00489307293863217,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -568,8 +568,8 @@
    "p": 0.001,
    "d_req": 13,
    "qubits": 3842,
-   "cycles_per_T": 31.3,
-   "eps_T": 1.1577689477126896e-06,
+   "cycles_per_T": 31.4,
+   "eps_T": 1.1689023357019934e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -578,7 +578,7 @@
    "d_req": 13,
    "qubits": 3850,
    "cycles_per_T": 42.5,
-   "eps_T": 4.992594030417408e-07,
+   "eps_T": 1.9713543986110693e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -587,7 +587,7 @@
    "d_req": 13,
    "qubits": 3858,
    "cycles_per_T": 54.6,
-   "eps_T": 6.295306791415101e-07,
+   "eps_T": 2.412317419153709e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -595,8 +595,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 2442,
-   "cycles_per_T": 37.8,
-   "eps_T": 0.004731390751730236,
+   "cycles_per_T": 35.5,
+   "eps_T": 0.0035955893682027007,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -604,8 +604,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 2450,
-   "cycles_per_T": 44.4,
-   "eps_T": 0.00015493356909079825,
+   "cycles_per_T": 43.2,
+   "eps_T": 0.00014236204396778085,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -613,8 +613,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 2458,
-   "cycles_per_T": 70.6,
-   "eps_T": 8.960616175168745e-05,
+   "cycles_per_T": 67.8,
+   "eps_T": 7.474201794743784e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -622,8 +622,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 2466,
-   "cycles_per_T": 105.2,
-   "eps_T": 0.00013193864920335585,
+   "cycles_per_T": 99.8,
+   "eps_T": 0.00010995714966322012,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -631,8 +631,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 3162,
-   "cycles_per_T": 35.8,
-   "eps_T": 0.003689935122189736,
+   "cycles_per_T": 33.8,
+   "eps_T": 0.002805858564899788,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -640,8 +640,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 3170,
-   "cycles_per_T": 31.6,
-   "eps_T": 1.4904115084313219e-06,
+   "cycles_per_T": 31.8,
+   "eps_T": 1.909680248379786e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -649,8 +649,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 3178,
-   "cycles_per_T": 43.4,
-   "eps_T": 2.68498741684553e-07,
+   "cycles_per_T": 43.5,
+   "eps_T": 2.8480794500573836e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -658,8 +658,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 3186,
-   "cycles_per_T": 56.0,
-   "eps_T": 3.251116398317322e-07,
+   "cycles_per_T": 56.2,
+   "eps_T": 3.474728551555728e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -667,8 +667,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 3882,
-   "cycles_per_T": 41.3,
-   "eps_T": 0.006721688308524154,
+   "cycles_per_T": 38.4,
+   "eps_T": 0.005039496610475203,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -676,8 +676,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 3890,
-   "cycles_per_T": 31.4,
-   "eps_T": 8.975411197598149e-07,
+   "cycles_per_T": 31.5,
+   "eps_T": 1.1161632108569464e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -686,7 +686,7 @@
    "d_req": 15,
    "qubits": 3898,
    "cycles_per_T": 42.6,
-   "eps_T": 5.969190319810025e-08,
+   "eps_T": 3.205959953067605e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -695,7 +695,7 @@
    "d_req": 15,
    "qubits": 3906,
    "cycles_per_T": 54.6,
-   "eps_T": 6.259180407308662e-08,
+   "eps_T": 2.722315561864974e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -703,8 +703,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 4602,
-   "cycles_per_T": 47.8,
-   "eps_T": 0.01153550137659931,
+   "cycles_per_T": 44.0,
+   "eps_T": 0.00860555535852725,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -712,8 +712,8 @@
    "p": 0.001,
    "d_req": 15,
    "qubits": 4610,
-   "cycles_per_T": 31.5,
-   "eps_T": 1.2179631090347698e-06,
+   "cycles_per_T": 31.6,
+   "eps_T": 1.5401906994227943e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -722,7 +722,7 @@
    "d_req": 15,
    "qubits": 4618,
    "cycles_per_T": 42.5,
-   "eps_T": 6.101998406560227e-08,
+   "eps_T": 2.9515146993119856e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -731,7 +731,7 @@
    "d_req": 15,
    "qubits": 4626,
    "cycles_per_T": 54.6,
-   "eps_T": 6.424112064529197e-08,
+   "eps_T": 2.391616549246578e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -739,8 +739,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 2970,
-   "cycles_per_T": 43.1,
-   "eps_T": 0.007951130329772793,
+   "cycles_per_T": 40.1,
+   "eps_T": 0.006025237262310634,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -748,8 +748,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 2978,
-   "cycles_per_T": 46.6,
-   "eps_T": 0.00022375612202296669,
+   "cycles_per_T": 45.2,
+   "eps_T": 0.00020628932010213763,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -757,8 +757,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 2986,
-   "cycles_per_T": 74.9,
-   "eps_T": 0.0001158797935868483,
+   "cycles_per_T": 71.6,
+   "eps_T": 9.660730044735999e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -766,8 +766,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 2994,
-   "cycles_per_T": 113.1,
-   "eps_T": 0.00016599972181330358,
+   "cycles_per_T": 106.8,
+   "eps_T": 0.00013829431354595023,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -775,8 +775,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 3786,
-   "cycles_per_T": 40.7,
-   "eps_T": 0.006378259212761583,
+   "cycles_per_T": 38.1,
+   "eps_T": 0.004824714114065598,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -784,8 +784,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 3794,
-   "cycles_per_T": 31.8,
-   "eps_T": 2.0996319989308176e-06,
+   "cycles_per_T": 32.0,
+   "eps_T": 2.7393006594156333e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -793,8 +793,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 3802,
-   "cycles_per_T": 43.5,
-   "eps_T": 2.962387248839349e-07,
+   "cycles_per_T": 43.6,
+   "eps_T": 3.441325184816435e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -802,8 +802,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 3810,
-   "cycles_per_T": 56.2,
-   "eps_T": 3.481470958188737e-07,
+   "cycles_per_T": 56.4,
+   "eps_T": 4.097083696752435e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -811,8 +811,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 4602,
-   "cycles_per_T": 47.7,
-   "eps_T": 0.011453592737542984,
+   "cycles_per_T": 43.9,
+   "eps_T": 0.008545448017758694,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -820,8 +820,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 4610,
-   "cycles_per_T": 31.5,
-   "eps_T": 1.2453470044082593e-06,
+   "cycles_per_T": 31.7,
+   "eps_T": 1.5957776636765786e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -830,7 +830,7 @@
    "d_req": 17,
    "qubits": 4618,
    "cycles_per_T": 42.6,
-   "eps_T": 2.9279527913317338e-08,
+   "eps_T": 2.6199415970040718e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -839,7 +839,7 @@
    "d_req": 17,
    "qubits": 4626,
    "cycles_per_T": 54.6,
-   "eps_T": 2.1159448859719987e-08,
+   "eps_T": 1.7405697105843387e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -847,8 +847,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 5418,
-   "cycles_per_T": 56.2,
-   "eps_T": 0.019435632765332223,
+   "cycles_per_T": 51.1,
+   "eps_T": 0.014437510480164062,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -856,8 +856,8 @@
    "p": 0.001,
    "d_req": 17,
    "qubits": 5426,
-   "cycles_per_T": 31.7,
-   "eps_T": 1.699415138167737e-06,
+   "cycles_per_T": 31.9,
+   "eps_T": 2.2052126662508442e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -866,7 +866,7 @@
    "d_req": 17,
    "qubits": 5434,
    "cycles_per_T": 42.5,
-   "eps_T": 2.5148231719285263e-08,
+   "eps_T": 2.1747233014401957e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -875,7 +875,7 @@
    "d_req": 17,
    "qubits": 5442,
    "cycles_per_T": 54.6,
-   "eps_T": 1.6042603911969877e-08,
+   "eps_T": 1.1901146290682618e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -883,8 +883,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 3546,
-   "cycles_per_T": 49.6,
-   "eps_T": 0.012849401286352702,
+   "cycles_per_T": 45.6,
+   "eps_T": 0.009711452025728873,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -892,8 +892,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 3554,
-   "cycles_per_T": 48.9,
-   "eps_T": 0.0003138876926300771,
+   "cycles_per_T": 47.3,
+   "eps_T": 0.00029023103226699654,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -901,8 +901,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 3562,
-   "cycles_per_T": 79.4,
-   "eps_T": 0.00014659483580103938,
+   "cycles_per_T": 75.5,
+   "eps_T": 0.0001221395170216688,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -910,8 +910,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 3570,
-   "cycles_per_T": 121.4,
-   "eps_T": 0.0002041402539685322,
+   "cycles_per_T": 114.1,
+   "eps_T": 0.00016999642063164622,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -919,8 +919,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 4458,
-   "cycles_per_T": 46.7,
-   "eps_T": 0.010610628202851413,
+   "cycles_per_T": 43.1,
+   "eps_T": 0.007985549075986587,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -928,8 +928,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 4466,
-   "cycles_per_T": 32.0,
-   "eps_T": 2.935196564912701e-06,
+   "cycles_per_T": 32.2,
+   "eps_T": 3.8542503972838205e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -937,8 +937,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 4474,
-   "cycles_per_T": 43.6,
-   "eps_T": 3.5792000452339323e-07,
+   "cycles_per_T": 43.7,
+   "eps_T": 4.200221384031977e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -946,8 +946,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 4482,
-   "cycles_per_T": 56.4,
-   "eps_T": 4.0995113748110157e-07,
+   "cycles_per_T": 56.6,
+   "eps_T": 4.875214230093405e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -955,8 +955,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 5370,
-   "cycles_per_T": 55.6,
-   "eps_T": 0.018774245595638672,
+   "cycles_per_T": 50.6,
+   "eps_T": 0.013950168256494422,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -964,8 +964,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 5378,
-   "cycles_per_T": 31.7,
-   "eps_T": 1.7416110271728513e-06,
+   "cycles_per_T": 31.9,
+   "eps_T": 2.2504922791988236e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -974,7 +974,7 @@
    "d_req": 19,
    "qubits": 5386,
    "cycles_per_T": 42.6,
-   "eps_T": 2.9080941210679612e-08,
+   "eps_T": 2.8339508739705366e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -982,8 +982,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 5394,
-   "cycles_per_T": 54.7,
-   "eps_T": 1.8233537124601185e-08,
+   "cycles_per_T": 54.6,
+   "eps_T": 1.7545068065061287e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -991,8 +991,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 6282,
-   "cycles_per_T": 66.4,
-   "eps_T": 0.03142043187672028,
+   "cycles_per_T": 59.7,
+   "eps_T": 0.023286407612574722,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1000,8 +1000,8 @@
    "p": 0.001,
    "d_req": 19,
    "qubits": 6290,
-   "cycles_per_T": 31.9,
-   "eps_T": 2.3752764213291755e-06,
+   "cycles_per_T": 32.1,
+   "eps_T": 3.1053008202608368e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1010,7 +1010,7 @@
    "d_req": 19,
    "qubits": 6298,
    "cycles_per_T": 42.6,
-   "eps_T": 2.373242913300544e-08,
+   "eps_T": 2.3008472127550306e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1019,7 +1019,7 @@
    "d_req": 19,
    "qubits": 6306,
    "cycles_per_T": 54.6,
-   "eps_T": 1.1891860163260048e-08,
+   "eps_T": 1.1252782261550465e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1027,8 +1027,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 4170,
-   "cycles_per_T": 57.5,
-   "eps_T": 0.020089891597372844,
+   "cycles_per_T": 52.3,
+   "eps_T": 0.015151380642131174,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1036,8 +1036,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 4178,
-   "cycles_per_T": 51.2,
-   "eps_T": 0.0004295902670233831,
+   "cycles_per_T": 49.4,
+   "eps_T": 0.0003982548599027469,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1045,8 +1045,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 4186,
-   "cycles_per_T": 84.1,
-   "eps_T": 0.00018214348723144536,
+   "cycles_per_T": 79.7,
+   "eps_T": 0.00015167468797772088,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1054,8 +1054,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 4194,
-   "cycles_per_T": 130.2,
-   "eps_T": 0.0002463502028775544,
+   "cycles_per_T": 121.7,
+   "eps_T": 0.00020507150271853458,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1063,8 +1063,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 5178,
-   "cycles_per_T": 54.0,
-   "eps_T": 0.017084524927806877,
+   "cycles_per_T": 49.3,
+   "eps_T": 0.012800068462912595,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1072,8 +1072,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 5186,
-   "cycles_per_T": 32.3,
-   "eps_T": 4.031644619373331e-06,
+   "cycles_per_T": 32.5,
+   "eps_T": 5.319994253349947e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1081,8 +1081,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 5194,
-   "cycles_per_T": 43.7,
-   "eps_T": 4.310624915904171e-07,
+   "cycles_per_T": 43.9,
+   "eps_T": 5.072483144630269e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1090,8 +1090,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 5202,
-   "cycles_per_T": 56.6,
-   "eps_T": 4.806331594942037e-07,
+   "cycles_per_T": 56.8,
+   "eps_T": 5.730095615774644e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1099,8 +1099,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 6186,
-   "cycles_per_T": 65.1,
-   "eps_T": 0.029735691702429845,
+   "cycles_per_T": 58.6,
+   "eps_T": 0.022041083973236786,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1108,8 +1108,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 6194,
-   "cycles_per_T": 31.9,
-   "eps_T": 2.4004647187769734e-06,
+   "cycles_per_T": 32.1,
+   "eps_T": 3.120699878733646e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1118,7 +1118,7 @@
    "d_req": 21,
    "qubits": 6202,
    "cycles_per_T": 42.6,
-   "eps_T": 3.1855750037834696e-08,
+   "eps_T": 3.125554015603882e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1127,7 +1127,7 @@
    "d_req": 21,
    "qubits": 6210,
    "cycles_per_T": 54.7,
-   "eps_T": 1.875364230574661e-08,
+   "eps_T": 1.8316965277875852e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1135,8 +1135,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 7194,
-   "cycles_per_T": 78.5,
-   "eps_T": 0.0488627112681882,
+   "cycles_per_T": 70.0,
+   "eps_T": 0.036254248492437524,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1144,8 +1144,8 @@
    "p": 0.001,
    "d_req": 21,
    "qubits": 7202,
-   "cycles_per_T": 32.1,
-   "eps_T": 3.266232832643823e-06,
+   "cycles_per_T": 32.3,
+   "eps_T": 4.293231621987914e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1154,7 +1154,7 @@
    "d_req": 21,
    "qubits": 7210,
    "cycles_per_T": 42.6,
-   "eps_T": 2.5554580673770033e-08,
+   "eps_T": 2.5016313909276278e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1163,7 +1163,7 @@
    "d_req": 21,
    "qubits": 7218,
    "cycles_per_T": 54.6,
-   "eps_T": 1.1626490215022045e-08,
+   "eps_T": 1.129775872854566e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1171,8 +1171,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 4842,
-   "cycles_per_T": 67.0,
-   "eps_T": 0.030505995009021847,
+   "cycles_per_T": 60.3,
+   "eps_T": 0.022980437067614434,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1180,8 +1180,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 4850,
-   "cycles_per_T": 53.7,
-   "eps_T": 0.000575590960952832,
+   "cycles_per_T": 51.7,
+   "eps_T": 0.0005348741026390824,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1189,8 +1189,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 4858,
-   "cycles_per_T": 89.0,
-   "eps_T": 0.00022296783733999348,
+   "cycles_per_T": 84.0,
+   "eps_T": 0.0001855814033053793,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1198,8 +1198,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 4866,
-   "cycles_per_T": 139.4,
-   "eps_T": 0.00029263220827857594,
+   "cycles_per_T": 129.7,
+   "eps_T": 0.00024352682123041092,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1207,8 +1207,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 5946,
-   "cycles_per_T": 62.7,
-   "eps_T": 0.026712122403265592,
+   "cycles_per_T": 56.8,
+   "eps_T": 0.019948701658102364,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1216,8 +1216,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 5954,
-   "cycles_per_T": 32.5,
-   "eps_T": 5.447543280912015e-06,
+   "cycles_per_T": 32.8,
+   "eps_T": 7.218379159290578e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1225,8 +1225,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 5962,
-   "cycles_per_T": 43.9,
-   "eps_T": 5.144766832554382e-07,
+   "cycles_per_T": 44.0,
+   "eps_T": 6.064862257959547e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1234,8 +1234,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 5970,
-   "cycles_per_T": 56.8,
-   "eps_T": 5.575963879511647e-07,
+   "cycles_per_T": 57.0,
+   "eps_T": 6.657631381745688e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1243,8 +1243,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 7050,
-   "cycles_per_T": 76.4,
-   "eps_T": 0.04557302936545926,
+   "cycles_per_T": 68.2,
+   "eps_T": 0.03379643323398396,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1252,8 +1252,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 7058,
-   "cycles_per_T": 32.1,
-   "eps_T": 3.260301238983132e-06,
+   "cycles_per_T": 32.3,
+   "eps_T": 4.260589443472185e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1262,7 +1262,7 @@
    "d_req": 23,
    "qubits": 7066,
    "cycles_per_T": 42.6,
-   "eps_T": 3.522060598726284e-08,
+   "eps_T": 3.4535520887502e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1271,7 +1271,7 @@
    "d_req": 23,
    "qubits": 7074,
    "cycles_per_T": 54.7,
-   "eps_T": 1.9614517232646733e-08,
+   "eps_T": 1.9152445740466817e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1279,8 +1279,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 8154,
-   "cycles_per_T": 92.2,
-   "eps_T": 0.07301716331298169,
+   "cycles_per_T": 81.9,
+   "eps_T": 0.05453109957498048,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1288,8 +1288,8 @@
    "p": 0.001,
    "d_req": 23,
    "qubits": 8162,
-   "cycles_per_T": 32.4,
-   "eps_T": 4.421171323931716e-06,
+   "cycles_per_T": 32.6,
+   "eps_T": 5.838180597073084e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1298,7 +1298,7 @@
    "d_req": 23,
    "qubits": 8170,
    "cycles_per_T": 42.6,
-   "eps_T": 2.78916908458271e-08,
+   "eps_T": 2.728877435131949e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1307,7 +1307,7 @@
    "d_req": 23,
    "qubits": 8178,
    "cycles_per_T": 54.6,
-   "eps_T": 1.1717134262845263e-08,
+   "eps_T": 1.1389432508224218e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1315,8 +1315,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 5562,
-   "cycles_per_T": 78.5,
-   "eps_T": 0.04507588199169854,
+   "cycles_per_T": 69.9,
+   "eps_T": 0.033974514808521206,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1324,8 +1324,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 5570,
-   "cycles_per_T": 56.3,
-   "eps_T": 0.0007570771287138678,
+   "cycles_per_T": 54.0,
+   "eps_T": 0.0007050538793726968,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1333,8 +1333,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 5578,
-   "cycles_per_T": 94.1,
-   "eps_T": 0.0002695426626810882,
+   "cycles_per_T": 88.4,
+   "eps_T": 0.00022425560443517512,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1342,8 +1342,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 5586,
-   "cycles_per_T": 149.0,
-   "eps_T": 0.00034298039624069965,
+   "cycles_per_T": 138.1,
+   "eps_T": 0.00028536269331458364,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1351,8 +1351,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 6762,
-   "cycles_per_T": 73.2,
-   "eps_T": 0.040597952075515864,
+   "cycles_per_T": 65.6,
+   "eps_T": 0.030290911072355153,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1360,8 +1360,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 6770,
-   "cycles_per_T": 32.8,
-   "eps_T": 7.252674077751209e-06,
+   "cycles_per_T": 33.1,
+   "eps_T": 9.645116668899334e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1369,8 +1369,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 6778,
-   "cycles_per_T": 44.0,
-   "eps_T": 6.089385006236014e-07,
+   "cycles_per_T": 44.2,
+   "eps_T": 7.188519632883583e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1378,8 +1378,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 6786,
-   "cycles_per_T": 57.0,
-   "eps_T": 6.406874308861887e-07,
+   "cycles_per_T": 57.2,
+   "eps_T": 7.658393823550824e-07,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1387,8 +1387,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 7962,
-   "cycles_per_T": 89.3,
-   "eps_T": 0.06749232853535325,
+   "cycles_per_T": 79.4,
+   "eps_T": 0.05030838786630698,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1396,8 +1396,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 7970,
-   "cycles_per_T": 32.4,
-   "eps_T": 4.36842821671668e-06,
+   "cycles_per_T": 32.6,
+   "eps_T": 5.734750907038233e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1406,7 +1406,7 @@
    "d_req": 25,
    "qubits": 7978,
    "cycles_per_T": 42.7,
-   "eps_T": 3.899134737306298e-08,
+   "eps_T": 3.818539728861481e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1415,7 +1415,7 @@
    "d_req": 25,
    "qubits": 7986,
    "cycles_per_T": 54.7,
-   "eps_T": 2.0534741462796546e-08,
+   "eps_T": 2.0016438506686995e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1423,8 +1423,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 9162,
-   "cycles_per_T": 107.1,
-   "eps_T": 0.1044218525347913,
+   "cycles_per_T": 95.3,
+   "eps_T": 0.07909418645504807,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1432,8 +1432,8 @@
    "p": 0.001,
    "d_req": 25,
    "qubits": 9170,
-   "cycles_per_T": 32.6,
-   "eps_T": 5.899556357991109e-06,
+   "cycles_per_T": 32.9,
+   "eps_T": 7.821819805187147e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1442,7 +1442,7 @@
    "d_req": 25,
    "qubits": 9178,
    "cycles_per_T": 42.6,
-   "eps_T": 3.0520406202327877e-08,
+   "eps_T": 2.98175786284105e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1451,7 +1451,7 @@
    "d_req": 25,
    "qubits": 9186,
    "cycles_per_T": 54.6,
-   "eps_T": 1.1845465719417803e-08,
+   "eps_T": 1.148765238490057e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1459,8 +1459,8 @@
    "p": 0.0005,
    "d_req": 5,
    "qubits": 522,
-   "cycles_per_T": 19.1,
-   "eps_T": 0.0005015103589347536,
+   "cycles_per_T": 19.3,
+   "eps_T": 0.0006106051508611987,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1468,8 +1468,8 @@
    "p": 0.0005,
    "d_req": 5,
    "qubits": 530,
-   "cycles_per_T": 31.3,
-   "eps_T": 0.0008318690614138591,
+   "cycles_per_T": 31.5,
+   "eps_T": 0.0010118127908327335,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1477,8 +1477,8 @@
    "p": 0.0005,
    "d_req": 5,
    "qubits": 762,
-   "cycles_per_T": 19.0,
-   "eps_T": 0.0006876337260104393,
+   "cycles_per_T": 19.2,
+   "eps_T": 0.0008367394766639613,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1486,8 +1486,8 @@
    "p": 0.0005,
    "d_req": 5,
    "qubits": 770,
-   "cycles_per_T": 30.2,
-   "eps_T": 0.0011422939051721759,
+   "cycles_per_T": 30.3,
+   "eps_T": 0.0013890948746073661,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1495,8 +1495,8 @@
    "p": 0.0005,
    "d_req": 7,
    "qubits": 810,
-   "cycles_per_T": 19.6,
-   "eps_T": 2.2498713438512397e-05,
+   "cycles_per_T": 19.8,
+   "eps_T": 2.660852759117649e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1504,8 +1504,8 @@
    "p": 0.0005,
    "d_req": 7,
    "qubits": 818,
-   "cycles_per_T": 31.7,
-   "eps_T": 2.795977515246406e-05,
+   "cycles_per_T": 31.9,
+   "eps_T": 3.021047590356929e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1513,8 +1513,8 @@
    "p": 0.0005,
    "d_req": 7,
    "qubits": 826,
-   "cycles_per_T": 45.3,
-   "eps_T": 3.92141963213577e-05,
+   "cycles_per_T": 45.8,
+   "eps_T": 4.234187229545938e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1522,8 +1522,8 @@
    "p": 0.0005,
    "d_req": 7,
    "qubits": 1146,
-   "cycles_per_T": 19.4,
-   "eps_T": 2.5854075642373076e-05,
+   "cycles_per_T": 19.6,
+   "eps_T": 2.9447467236765057e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1532,7 +1532,7 @@
    "d_req": 7,
    "qubits": 1154,
    "cycles_per_T": 30.2,
-   "eps_T": 3.6240986234337136e-05,
+   "eps_T": 3.8975313781053345e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1541,7 +1541,7 @@
    "d_req": 7,
    "qubits": 1162,
    "cycles_per_T": 42.3,
-   "eps_T": 5.073261713683941e-05,
+   "eps_T": 5.4559266895903846e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1549,8 +1549,8 @@
    "p": 0.0005,
    "d_req": 7,
    "qubits": 1482,
-   "cycles_per_T": 19.7,
-   "eps_T": 3.477283371211559e-05,
+   "cycles_per_T": 20.0,
+   "eps_T": 4.055176471551292e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1559,7 +1559,7 @@
    "d_req": 7,
    "qubits": 1490,
    "cycles_per_T": 30.2,
-   "eps_T": 4.500694602538324e-05,
+   "eps_T": 4.840191617261347e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1568,7 +1568,7 @@
    "d_req": 7,
    "qubits": 1498,
    "cycles_per_T": 42.2,
-   "eps_T": 6.300365667455399e-05,
+   "eps_T": 6.775502169253933e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1576,8 +1576,8 @@
    "p": 0.0005,
    "d_req": 9,
    "qubits": 1146,
-   "cycles_per_T": 20.1,
-   "eps_T": 1.3787392517450314e-05,
+   "cycles_per_T": 20.4,
+   "eps_T": 2.0040136053500746e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1585,8 +1585,8 @@
    "p": 0.0005,
    "d_req": 9,
    "qubits": 1154,
-   "cycles_per_T": 32.1,
-   "eps_T": 1.8165288615534791e-06,
+   "cycles_per_T": 32.4,
+   "eps_T": 1.8787048164936593e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1594,8 +1594,8 @@
    "p": 0.0005,
    "d_req": 9,
    "qubits": 1162,
-   "cycles_per_T": 46.1,
-   "eps_T": 2.549752056602017e-06,
+   "cycles_per_T": 46.7,
+   "eps_T": 2.551226467861767e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1603,8 +1603,8 @@
    "p": 0.0005,
    "d_req": 9,
    "qubits": 1170,
-   "cycles_per_T": 61.0,
-   "eps_T": 3.745319802184177e-06,
+   "cycles_per_T": 62.0,
+   "eps_T": 3.893024538736967e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1612,8 +1612,8 @@
    "p": 0.0005,
    "d_req": 9,
    "qubits": 1578,
-   "cycles_per_T": 19.8,
-   "eps_T": 9.88296429060842e-06,
+   "cycles_per_T": 20.1,
+   "eps_T": 1.4119571816961773e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1622,7 +1622,7 @@
    "d_req": 9,
    "qubits": 1586,
    "cycles_per_T": 30.3,
-   "eps_T": 1.3503085294352957e-06,
+   "eps_T": 1.0521305753297128e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1631,7 +1631,7 @@
    "d_req": 9,
    "qubits": 1594,
    "cycles_per_T": 42.3,
-   "eps_T": 1.8851974016298456e-06,
+   "eps_T": 1.4658956110080723e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1640,7 +1640,7 @@
    "d_req": 9,
    "qubits": 1602,
    "cycles_per_T": 54.4,
-   "eps_T": 2.423600115264435e-06,
+   "eps_T": 1.8845718035009895e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1648,8 +1648,8 @@
    "p": 0.0005,
    "d_req": 9,
    "qubits": 2010,
-   "cycles_per_T": 20.3,
-   "eps_T": 1.796776337059658e-05,
+   "cycles_per_T": 20.6,
+   "eps_T": 2.609946180975875e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1658,7 +1658,7 @@
    "d_req": 9,
    "qubits": 2018,
    "cycles_per_T": 30.2,
-   "eps_T": 1.6411388912285219e-06,
+   "eps_T": 1.2771523678622998e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1667,7 +1667,7 @@
    "d_req": 9,
    "qubits": 2026,
    "cycles_per_T": 42.2,
-   "eps_T": 2.29256128980726e-06,
+   "eps_T": 1.7814916676295312e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1676,7 +1676,7 @@
    "d_req": 9,
    "qubits": 2034,
    "cycles_per_T": 54.3,
-   "eps_T": 2.9471203948361335e-06,
+   "eps_T": 2.2900243275003618e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1684,8 +1684,8 @@
    "p": 0.0005,
    "d_req": 9,
    "qubits": 2442,
-   "cycles_per_T": 20.8,
-   "eps_T": 3.0183264493444106e-05,
+   "cycles_per_T": 21.2,
+   "eps_T": 4.435871591457197e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1693,8 +1693,8 @@
    "p": 0.0005,
    "d_req": 9,
    "qubits": 2450,
-   "cycles_per_T": 30.2,
-   "eps_T": 1.9342410118028397e-06,
+   "cycles_per_T": 30.3,
+   "eps_T": 1.5053972133305393e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1703,7 +1703,7 @@
    "d_req": 9,
    "qubits": 2458,
    "cycles_per_T": 42.2,
-   "eps_T": 2.7017206964963236e-06,
+   "eps_T": 2.09937270845284e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1712,7 +1712,7 @@
    "d_req": 9,
    "qubits": 2466,
    "cycles_per_T": 54.3,
-   "eps_T": 3.4731661620046594e-06,
+   "eps_T": 2.698711758064576e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1720,8 +1720,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 1530,
-   "cycles_per_T": 20.6,
-   "eps_T": 2.599439011108373e-05,
+   "cycles_per_T": 21.0,
+   "eps_T": 3.8773217845067265e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1729,8 +1729,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 1538,
-   "cycles_per_T": 32.5,
-   "eps_T": 1.2109759484069116e-06,
+   "cycles_per_T": 32.9,
+   "eps_T": 1.6685007768746374e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1738,8 +1738,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 1546,
-   "cycles_per_T": 46.9,
-   "eps_T": 1.5844549076104997e-06,
+   "cycles_per_T": 47.6,
+   "eps_T": 2.03382134378316e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1747,8 +1747,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 1554,
-   "cycles_per_T": 62.3,
-   "eps_T": 2.6693723675919045e-06,
+   "cycles_per_T": 63.6,
+   "eps_T": 3.444656740847485e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1756,8 +1756,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 2058,
-   "cycles_per_T": 20.3,
-   "eps_T": 1.8186054478785962e-05,
+   "cycles_per_T": 20.7,
+   "eps_T": 2.7151323521601434e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1766,7 +1766,7 @@
    "d_req": 11,
    "qubits": 2066,
    "cycles_per_T": 30.3,
-   "eps_T": 6.232675475725813e-08,
+   "eps_T": 4.506452588870502e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1775,7 +1775,7 @@
    "d_req": 11,
    "qubits": 2074,
    "cycles_per_T": 42.3,
-   "eps_T": 8.009453378310383e-08,
+   "eps_T": 5.3133072164257555e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1783,8 +1783,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 2082,
-   "cycles_per_T": 54.4,
-   "eps_T": 1.0275365747158816e-07,
+   "cycles_per_T": 54.5,
+   "eps_T": 6.818449715950692e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1792,8 +1792,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 2586,
-   "cycles_per_T": 20.9,
-   "eps_T": 3.3434609236215884e-05,
+   "cycles_per_T": 21.3,
+   "eps_T": 5.007661545719522e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1801,8 +1801,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 2594,
-   "cycles_per_T": 30.2,
-   "eps_T": 7.10949843441e-08,
+   "cycles_per_T": 30.3,
+   "eps_T": 4.902057892941514e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1811,7 +1811,7 @@
    "d_req": 11,
    "qubits": 2602,
    "cycles_per_T": 42.2,
-   "eps_T": 9.29849626185586e-08,
+   "eps_T": 5.99340114204594e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1820,7 +1820,7 @@
    "d_req": 11,
    "qubits": 2610,
    "cycles_per_T": 54.3,
-   "eps_T": 1.1907935593136187e-07,
+   "eps_T": 7.657629264024024e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1828,8 +1828,8 @@
    "p": 0.0005,
    "d_req": 11,
    "qubits": 3114,
-   "cycles_per_T": 21.5,
-   "eps_T": 5.644836115692442e-05,
+   "cycles_per_T": 22.0,
+   "eps_T": 8.485525341339617e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1838,7 +1838,7 @@
    "d_req": 11,
    "qubits": 3122,
    "cycles_per_T": 30.3,
-   "eps_T": 8.301900722429423e-08,
+   "eps_T": 5.7564351840788675e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1847,7 +1847,7 @@
    "d_req": 11,
    "qubits": 3130,
    "cycles_per_T": 42.2,
-   "eps_T": 1.0804521433094294e-07,
+   "eps_T": 6.954063325181892e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1856,7 +1856,7 @@
    "d_req": 11,
    "qubits": 3138,
    "cycles_per_T": 54.3,
-   "eps_T": 1.384266274939705e-07,
+   "eps_T": 8.891063629778984e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1864,8 +1864,8 @@
    "p": 0.0005,
    "d_req": 13,
    "qubits": 1962,
-   "cycles_per_T": 21.2,
-   "eps_T": 4.740181261020382e-05,
+   "cycles_per_T": 21.7,
+   "eps_T": 7.098479727596363e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1873,8 +1873,8 @@
    "p": 0.0005,
    "d_req": 13,
    "qubits": 1970,
-   "cycles_per_T": 32.9,
-   "eps_T": 1.700946472338316e-06,
+   "cycles_per_T": 33.3,
+   "eps_T": 2.41549961033094e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1882,8 +1882,8 @@
    "p": 0.0005,
    "d_req": 13,
    "qubits": 1978,
-   "cycles_per_T": 47.7,
-   "eps_T": 2.0551079524810945e-06,
+   "cycles_per_T": 48.5,
+   "eps_T": 2.693123594688096e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1891,8 +1891,8 @@
    "p": 0.0005,
    "d_req": 13,
    "qubits": 1986,
-   "cycles_per_T": 63.7,
-   "eps_T": 3.463016232552185e-06,
+   "cycles_per_T": 65.2,
+   "eps_T": 4.539106996270803e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1900,8 +1900,8 @@
    "p": 0.0005,
    "d_req": 13,
    "qubits": 2586,
-   "cycles_per_T": 20.9,
-   "eps_T": 3.361785828459585e-05,
+   "cycles_per_T": 21.4,
+   "eps_T": 5.04532835841065e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1910,7 +1910,7 @@
    "d_req": 13,
    "qubits": 2594,
    "cycles_per_T": 30.3,
-   "eps_T": 1.2238981272894023e-08,
+   "eps_T": 1.4594645381116322e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1919,7 +1919,7 @@
    "d_req": 13,
    "qubits": 2602,
    "cycles_per_T": 42.3,
-   "eps_T": 7.425951742412451e-09,
+   "eps_T": 6.638635086098077e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1927,8 +1927,8 @@
    "p": 0.0005,
    "d_req": 13,
    "qubits": 2610,
-   "cycles_per_T": 54.4,
-   "eps_T": 9.349133023306422e-09,
+   "cycles_per_T": 54.5,
+   "eps_T": 8.455136368823446e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1936,8 +1936,8 @@
    "p": 0.0005,
    "d_req": 13,
    "qubits": 3210,
-   "cycles_per_T": 21.6,
-   "eps_T": 6.063917911280914e-05,
+   "cycles_per_T": 22.2,
+   "eps_T": 9.124090250467454e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1946,7 +1946,7 @@
    "d_req": 13,
    "qubits": 3218,
    "cycles_per_T": 30.3,
-   "eps_T": 9.90688742152912e-09,
+   "eps_T": 1.0724739984979692e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1955,7 +1955,7 @@
    "d_req": 13,
    "qubits": 3226,
    "cycles_per_T": 42.2,
-   "eps_T": 5.3404141109325565e-09,
+   "eps_T": 3.4629493717019955e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1964,7 +1964,7 @@
    "d_req": 13,
    "qubits": 3234,
    "cycles_per_T": 54.3,
-   "eps_T": 6.37445385365254e-09,
+   "eps_T": 3.949832905192352e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1972,8 +1972,8 @@
    "p": 0.0005,
    "d_req": 13,
    "qubits": 3834,
-   "cycles_per_T": 22.3,
-   "eps_T": 0.0001010274541670686,
+   "cycles_per_T": 23.0,
+   "eps_T": 0.0001525177170513814,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1982,7 +1982,7 @@
    "d_req": 13,
    "qubits": 3842,
    "cycles_per_T": 30.3,
-   "eps_T": 1.1896566509683737e-08,
+   "eps_T": 1.3250752051163772e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -1991,7 +1991,7 @@
    "d_req": 13,
    "qubits": 3850,
    "cycles_per_T": 42.2,
-   "eps_T": 5.896258370441387e-09,
+   "eps_T": 3.725778352503539e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2000,7 +2000,7 @@
    "d_req": 13,
    "qubits": 3858,
    "cycles_per_T": 54.3,
-   "eps_T": 7.071178309558945e-09,
+   "eps_T": 4.268566833331988e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2008,8 +2008,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 2442,
-   "cycles_per_T": 21.9,
-   "eps_T": 8.143354639322808e-05,
+   "cycles_per_T": 22.6,
+   "eps_T": 0.0001222965374767515,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2017,8 +2017,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 2450,
-   "cycles_per_T": 33.3,
-   "eps_T": 2.385062367604718e-06,
+   "cycles_per_T": 33.8,
+   "eps_T": 3.423902172894344e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2026,8 +2026,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 2458,
-   "cycles_per_T": 48.5,
-   "eps_T": 2.664757328796341e-06,
+   "cycles_per_T": 49.5,
+   "eps_T": 3.498960813530516e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2035,8 +2035,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 2466,
-   "cycles_per_T": 65.1,
-   "eps_T": 4.456411079489797e-06,
+   "cycles_per_T": 66.8,
+   "eps_T": 5.848967279065143e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2044,8 +2044,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 3162,
-   "cycles_per_T": 21.5,
-   "eps_T": 5.861677742502458e-05,
+   "cycles_per_T": 22.1,
+   "eps_T": 8.829070918936477e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2053,8 +2053,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 3170,
-   "cycles_per_T": 30.3,
-   "eps_T": 1.2721195763454318e-08,
+   "cycles_per_T": 30.4,
+   "eps_T": 1.752592970749589e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2062,8 +2062,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 3178,
-   "cycles_per_T": 42.3,
-   "eps_T": 4.820486898537979e-09,
+   "cycles_per_T": 42.4,
+   "eps_T": 5.727211815909072e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2072,7 +2072,7 @@
    "d_req": 15,
    "qubits": 3186,
    "cycles_per_T": 54.5,
-   "eps_T": 6.026516841117768e-09,
+   "eps_T": 7.333927132258111e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2080,8 +2080,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 3882,
-   "cycles_per_T": 22.4,
-   "eps_T": 0.00010361873902198226,
+   "cycles_per_T": 23.1,
+   "eps_T": 0.00015646108637024092,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2090,7 +2090,7 @@
    "d_req": 15,
    "qubits": 3890,
    "cycles_per_T": 30.3,
-   "eps_T": 9.041490445227396e-09,
+   "eps_T": 1.196230448030633e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2099,7 +2099,7 @@
    "d_req": 15,
    "qubits": 3898,
    "cycles_per_T": 42.2,
-   "eps_T": 1.647254777026319e-09,
+   "eps_T": 1.560138906953057e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2108,7 +2108,7 @@
    "d_req": 15,
    "qubits": 3906,
    "cycles_per_T": 54.3,
-   "eps_T": 1.6052408291500342e-09,
+   "eps_T": 1.480586764301961e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2116,8 +2116,8 @@
    "p": 0.0005,
    "d_req": 15,
    "qubits": 4602,
-   "cycles_per_T": 23.2,
-   "eps_T": 0.00017020306988624334,
+   "cycles_per_T": 24.1,
+   "eps_T": 0.0002578561611827901,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2126,7 +2126,7 @@
    "d_req": 15,
    "qubits": 4610,
    "cycles_per_T": 30.3,
-   "eps_T": 1.1152341827802559e-08,
+   "eps_T": 1.510662139825314e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2135,7 +2135,7 @@
    "d_req": 15,
    "qubits": 4618,
    "cycles_per_T": 42.2,
-   "eps_T": 1.626316081804191e-09,
+   "eps_T": 1.5203884817793778e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2144,7 +2144,7 @@
    "d_req": 15,
    "qubits": 4626,
    "cycles_per_T": 54.3,
-   "eps_T": 1.5584047385885924e-09,
+   "eps_T": 1.4082215393784736e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2152,8 +2152,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 2970,
-   "cycles_per_T": 22.7,
-   "eps_T": 0.00013328839327675368,
+   "cycles_per_T": 23.5,
+   "eps_T": 0.00020067624138686568,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2161,8 +2161,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 2978,
-   "cycles_per_T": 33.8,
-   "eps_T": 3.254191881851831e-06,
+   "cycles_per_T": 34.3,
+   "eps_T": 4.7154453992614975e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2170,8 +2170,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 2986,
-   "cycles_per_T": 49.3,
-   "eps_T": 3.3615145573762106e-06,
+   "cycles_per_T": 50.5,
+   "eps_T": 4.418684844020859e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2179,8 +2179,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 2994,
-   "cycles_per_T": 66.5,
-   "eps_T": 5.5811076583589525e-06,
+   "cycles_per_T": 68.5,
+   "eps_T": 7.3297883029788125e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2188,8 +2188,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 3786,
-   "cycles_per_T": 22.3,
-   "eps_T": 9.73850733418935e-05,
+   "cycles_per_T": 23.0,
+   "eps_T": 0.0001471614023722534,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2197,8 +2197,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 3794,
-   "cycles_per_T": 30.3,
-   "eps_T": 1.6017053794392666e-08,
+   "cycles_per_T": 30.4,
+   "eps_T": 2.2657829945593733e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2206,8 +2206,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 3802,
-   "cycles_per_T": 42.3,
-   "eps_T": 5.260171298537841e-09,
+   "cycles_per_T": 42.4,
+   "eps_T": 6.44731290577738e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2216,7 +2216,7 @@
    "d_req": 17,
    "qubits": 3810,
    "cycles_per_T": 54.5,
-   "eps_T": 6.617307590772725e-09,
+   "eps_T": 8.30877922020079e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2224,8 +2224,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 4602,
-   "cycles_per_T": 23.2,
-   "eps_T": 0.0001687801127214783,
+   "cycles_per_T": 24.1,
+   "eps_T": 0.0002556914253037945,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2234,7 +2234,7 @@
    "d_req": 17,
    "qubits": 4610,
    "cycles_per_T": 30.3,
-   "eps_T": 1.1146593759114864e-08,
+   "eps_T": 1.5211319759345088e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2243,7 +2243,7 @@
    "d_req": 17,
    "qubits": 4618,
    "cycles_per_T": 42.2,
-   "eps_T": 1.50849022162447e-09,
+   "eps_T": 1.5193385438649898e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2252,7 +2252,7 @@
    "d_req": 17,
    "qubits": 4626,
    "cycles_per_T": 54.3,
-   "eps_T": 1.404171445784641e-09,
+   "eps_T": 1.403378080411244e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2260,8 +2260,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 5418,
-   "cycles_per_T": 24.3,
-   "eps_T": 0.0002733697905015209,
+   "cycles_per_T": 25.3,
+   "eps_T": 0.00041555409285209954,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2269,8 +2269,8 @@
    "p": 0.0005,
    "d_req": 17,
    "qubits": 5426,
-   "cycles_per_T": 30.3,
-   "eps_T": 1.3896596540163841e-08,
+   "cycles_per_T": 30.4,
+   "eps_T": 1.9391952488234665e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2279,7 +2279,7 @@
    "d_req": 17,
    "qubits": 5434,
    "cycles_per_T": 42.2,
-   "eps_T": 1.4578984686153262e-09,
+   "eps_T": 1.463049681404982e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2288,7 +2288,7 @@
    "d_req": 17,
    "qubits": 5442,
    "cycles_per_T": 54.3,
-   "eps_T": 1.3173644397568296e-09,
+   "eps_T": 1.3078450544767861e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2296,8 +2296,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 3546,
-   "cycles_per_T": 23.6,
-   "eps_T": 0.00020969002027226846,
+   "cycles_per_T": 24.5,
+   "eps_T": 0.0003164426285957589,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2305,8 +2305,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 3554,
-   "cycles_per_T": 34.2,
-   "eps_T": 4.339368094408158e-06,
+   "cycles_per_T": 34.8,
+   "eps_T": 6.341796709552483e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2314,8 +2314,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 3562,
-   "cycles_per_T": 50.2,
-   "eps_T": 4.1450335310777575e-06,
+   "cycles_per_T": 51.4,
+   "eps_T": 5.453904944552335e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2323,8 +2323,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 3570,
-   "cycles_per_T": 67.9,
-   "eps_T": 6.834730460480998e-06,
+   "cycles_per_T": 70.2,
+   "eps_T": 8.98085644640556e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2332,8 +2332,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 4458,
-   "cycles_per_T": 23.1,
-   "eps_T": 0.00015548861817427095,
+   "cycles_per_T": 23.9,
+   "eps_T": 0.0002356820457165565,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2342,7 +2342,7 @@
    "d_req": 19,
    "qubits": 4466,
    "cycles_per_T": 30.4,
-   "eps_T": 2.0209217632682908e-08,
+   "eps_T": 2.913395236170402e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2351,7 +2351,7 @@
    "d_req": 19,
    "qubits": 4474,
    "cycles_per_T": 42.4,
-   "eps_T": 5.874988495691014e-09,
+   "eps_T": 7.283251668432911e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2359,8 +2359,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 4482,
-   "cycles_per_T": 54.5,
-   "eps_T": 7.429880932718902e-09,
+   "cycles_per_T": 54.6,
+   "eps_T": 9.42861266839401e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2368,8 +2368,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 5370,
-   "cycles_per_T": 24.2,
-   "eps_T": 0.0002644392529629336,
+   "cycles_per_T": 25.2,
+   "eps_T": 0.0004018895946811263,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2377,8 +2377,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 5378,
-   "cycles_per_T": 30.3,
-   "eps_T": 1.3885854799333686e-08,
+   "cycles_per_T": 30.4,
+   "eps_T": 1.9340085533059437e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2387,7 +2387,7 @@
    "d_req": 19,
    "qubits": 5386,
    "cycles_per_T": 42.2,
-   "eps_T": 1.5283107002161955e-09,
+   "eps_T": 1.546436978472343e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2396,7 +2396,7 @@
    "d_req": 19,
    "qubits": 5394,
    "cycles_per_T": 54.3,
-   "eps_T": 1.4051531049830146e-09,
+   "eps_T": 1.411428307562801e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2404,8 +2404,8 @@
    "p": 0.0005,
    "d_req": 19,
    "qubits": 6282,
-   "cycles_per_T": 25.4,
-   "eps_T": 0.00042253942950531975,
+   "cycles_per_T": 26.7,
+   "eps_T": 0.0006444659753017667,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2414,7 +2414,7 @@
    "d_req": 19,
    "qubits": 6290,
    "cycles_per_T": 30.4,
-   "eps_T": 1.7441553090691286e-08,
+   "eps_T": 2.481853822455804e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2423,7 +2423,7 @@
    "d_req": 19,
    "qubits": 6298,
    "cycles_per_T": 42.2,
-   "eps_T": 1.4704898410045075e-09,
+   "eps_T": 1.48293699542279e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2432,7 +2432,7 @@
    "d_req": 19,
    "qubits": 6306,
    "cycles_per_T": 54.3,
-   "eps_T": 1.307361108260352e-09,
+   "eps_T": 1.3049068492421156e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2440,8 +2440,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 4170,
-   "cycles_per_T": 24.5,
-   "eps_T": 0.0003191691482840042,
+   "cycles_per_T": 25.7,
+   "eps_T": 0.0004827403599249047,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2449,8 +2449,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 4178,
-   "cycles_per_T": 34.6,
-   "eps_T": 5.6767608411778525e-06,
+   "cycles_per_T": 35.3,
+   "eps_T": 8.361205681373107e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2458,8 +2458,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 4186,
-   "cycles_per_T": 51.0,
-   "eps_T": 5.017381944805166e-06,
+   "cycles_per_T": 52.4,
+   "eps_T": 6.60766767446308e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2467,8 +2467,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 4194,
-   "cycles_per_T": 69.4,
-   "eps_T": 8.217776783725483e-06,
+   "cycles_per_T": 71.9,
+   "eps_T": 1.0802967687628673e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2476,8 +2476,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 5178,
-   "cycles_per_T": 24.0,
-   "eps_T": 0.00024013390503796472,
+   "cycles_per_T": 25.0,
+   "eps_T": 0.00036506804907110446,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2485,8 +2485,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 5186,
-   "cycles_per_T": 30.4,
-   "eps_T": 2.5359958355508638e-08,
+   "cycles_per_T": 30.5,
+   "eps_T": 3.717873453545906e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2495,7 +2495,7 @@
    "d_req": 21,
    "qubits": 5194,
    "cycles_per_T": 42.4,
-   "eps_T": 6.5379665015186106e-09,
+   "eps_T": 8.182363897546452e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2503,8 +2503,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 5202,
-   "cycles_per_T": 54.5,
-   "eps_T": 8.299336773376353e-09,
+   "cycles_per_T": 54.6,
+   "eps_T": 1.0623260715547644e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2512,8 +2512,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 6186,
-   "cycles_per_T": 25.2,
-   "eps_T": 0.00040119450706110893,
+   "cycles_per_T": 26.5,
+   "eps_T": 0.0006116714687347535,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2522,7 +2522,7 @@
    "d_req": 21,
    "qubits": 6194,
    "cycles_per_T": 30.4,
-   "eps_T": 1.7256288620259852e-08,
+   "eps_T": 2.447872826660813e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2531,7 +2531,7 @@
    "d_req": 21,
    "qubits": 6202,
    "cycles_per_T": 42.2,
-   "eps_T": 1.556844875238994e-09,
+   "eps_T": 1.5776705497572152e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2540,7 +2540,7 @@
    "d_req": 21,
    "qubits": 6210,
    "cycles_per_T": 54.3,
-   "eps_T": 1.4154385441500494e-09,
+   "eps_T": 1.4226897437907837e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2548,8 +2548,8 @@
    "p": 0.0005,
    "d_req": 21,
    "qubits": 7194,
-   "cycles_per_T": 26.6,
-   "eps_T": 0.0006328412137727168,
+   "cycles_per_T": 28.2,
+   "eps_T": 0.0009685034675828152,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2558,7 +2558,7 @@
    "d_req": 21,
    "qubits": 7202,
    "cycles_per_T": 30.4,
-   "eps_T": 2.1795094617971245e-08,
+   "eps_T": 3.155642458452235e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2567,7 +2567,7 @@
    "d_req": 21,
    "qubits": 7210,
    "cycles_per_T": 42.2,
-   "eps_T": 1.4925946034693993e-09,
+   "eps_T": 1.5070908965242324e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2576,7 +2576,7 @@
    "d_req": 21,
    "qubits": 7218,
    "cycles_per_T": 54.3,
-   "eps_T": 1.3078571559077545e-09,
+   "eps_T": 1.3055490022395588e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2584,8 +2584,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 4842,
-   "cycles_per_T": 25.6,
-   "eps_T": 0.00047241450160639964,
+   "cycles_per_T": 26.9,
+   "eps_T": 0.0007161124274452924,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2593,8 +2593,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 4850,
-   "cycles_per_T": 35.1,
-   "eps_T": 7.306195256684411e-06,
+   "cycles_per_T": 35.9,
+   "eps_T": 1.0837762879134516e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2602,8 +2602,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 4858,
-   "cycles_per_T": 51.9,
-   "eps_T": 5.980900316115978e-06,
+   "cycles_per_T": 53.4,
+   "eps_T": 7.883304071865105e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2611,8 +2611,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 4866,
-   "cycles_per_T": 70.9,
-   "eps_T": 9.73086113364996e-06,
+   "cycles_per_T": 73.6,
+   "eps_T": 1.2796942302162329e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2620,8 +2620,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 5946,
-   "cycles_per_T": 24.9,
-   "eps_T": 0.0003605253974292566,
+   "cycles_per_T": 26.2,
+   "eps_T": 0.0005497275977788263,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2629,8 +2629,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 5954,
-   "cycles_per_T": 30.4,
-   "eps_T": 3.1641342435051456e-08,
+   "cycles_per_T": 30.5,
+   "eps_T": 4.7093792643337906e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2639,7 +2639,7 @@
    "d_req": 23,
    "qubits": 5962,
    "cycles_per_T": 42.4,
-   "eps_T": 7.244605582101826e-09,
+   "eps_T": 9.14471431912034e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2648,7 +2648,7 @@
    "d_req": 23,
    "qubits": 5970,
    "cycles_per_T": 54.6,
-   "eps_T": 9.218146246325887e-09,
+   "eps_T": 1.1890198825526e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2656,8 +2656,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 7050,
-   "cycles_per_T": 26.4,
-   "eps_T": 0.0005924040098661543,
+   "cycles_per_T": 28.0,
+   "eps_T": 0.0009061180746745556,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2666,7 +2666,7 @@
    "d_req": 23,
    "qubits": 7058,
    "cycles_per_T": 30.4,
-   "eps_T": 2.1373556258197368e-08,
+   "eps_T": 3.0830161534822764e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2675,7 +2675,7 @@
    "d_req": 23,
    "qubits": 7066,
    "cycles_per_T": 42.2,
-   "eps_T": 1.587305731298727e-09,
+   "eps_T": 1.6107476463744774e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2684,7 +2684,7 @@
    "d_req": 23,
    "qubits": 7074,
    "cycles_per_T": 54.3,
-   "eps_T": 1.4262386827113005e-09,
+   "eps_T": 1.4341480225610326e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2692,8 +2692,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 8154,
-   "cycles_per_T": 28.0,
-   "eps_T": 0.0009231547399148887,
+   "cycles_per_T": 29.9,
+   "eps_T": 0.0014177194700142337,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2701,8 +2701,8 @@
    "p": 0.0005,
    "d_req": 23,
    "qubits": 8162,
-   "cycles_per_T": 30.4,
-   "eps_T": 2.710165669661535e-08,
+   "cycles_per_T": 30.5,
+   "eps_T": 3.986047225623679e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2711,7 +2711,7 @@
    "d_req": 23,
    "qubits": 8170,
    "cycles_per_T": 42.2,
-   "eps_T": 1.5164884903384745e-09,
+   "eps_T": 1.5328904812150768e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2720,7 +2720,7 @@
    "d_req": 23,
    "qubits": 8178,
    "cycles_per_T": 54.3,
-   "eps_T": 1.3088756745105457e-09,
+   "eps_T": 1.3063528037093874e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2728,8 +2728,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 5562,
-   "cycles_per_T": 26.8,
-   "eps_T": 0.00068268106108893,
+   "cycles_per_T": 28.4,
+   "eps_T": 0.0010371706224954202,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2737,8 +2737,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 5570,
-   "cycles_per_T": 35.5,
-   "eps_T": 9.271130123167381e-06,
+   "cycles_per_T": 36.4,
+   "eps_T": 1.3841452325080716e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2746,8 +2746,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 5578,
-   "cycles_per_T": 52.7,
-   "eps_T": 7.038105563017538e-06,
+   "cycles_per_T": 54.5,
+   "eps_T": 9.284388426955559e-06,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2755,8 +2755,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 5586,
-   "cycles_per_T": 72.4,
-   "eps_T": 1.1374589894197484e-05,
+   "cycles_per_T": 75.4,
+   "eps_T": 1.4963569815673594e-05,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2764,8 +2764,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 6762,
-   "cycles_per_T": 26.1,
-   "eps_T": 0.0005282889623194897,
+   "cycles_per_T": 27.5,
+   "eps_T": 0.000807971797609941,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2774,7 +2774,7 @@
    "d_req": 25,
    "qubits": 6770,
    "cycles_per_T": 30.5,
-   "eps_T": 3.925401170778997e-08,
+   "eps_T": 5.9225678583629815e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2782,8 +2782,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 6778,
-   "cycles_per_T": 42.4,
-   "eps_T": 7.996120099384996e-09,
+   "cycles_per_T": 42.5,
+   "eps_T": 1.017243889123165e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2791,8 +2791,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 6786,
-   "cycles_per_T": 54.6,
-   "eps_T": 1.0186026355718525e-08,
+   "cycles_per_T": 54.7,
+   "eps_T": 1.3229416007121131e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2800,8 +2800,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 7962,
-   "cycles_per_T": 27.7,
-   "eps_T": 0.0008547508588689912,
+   "cycles_per_T": 29.6,
+   "eps_T": 0.0013117376576481377,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2809,8 +2809,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 7970,
-   "cycles_per_T": 30.4,
-   "eps_T": 2.637623452983462e-08,
+   "cycles_per_T": 30.5,
+   "eps_T": 3.8631063681293654e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2819,7 +2819,7 @@
    "d_req": 25,
    "qubits": 7978,
    "cycles_per_T": 42.2,
-   "eps_T": 1.6194214857989664e-09,
+   "eps_T": 1.6456422891053535e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2828,7 +2828,7 @@
    "d_req": 25,
    "qubits": 7986,
    "cycles_per_T": 54.3,
-   "eps_T": 1.4371436263260762e-09,
+   "eps_T": 1.4456920105487825e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2836,8 +2836,8 @@
    "p": 0.0005,
    "d_req": 25,
    "qubits": 9162,
-   "cycles_per_T": 29.6,
-   "eps_T": 0.0013168568054250374,
+   "cycles_per_T": 31.8,
+   "eps_T": 0.0020295913329804183,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2846,7 +2846,7 @@
    "d_req": 25,
    "qubits": 9170,
    "cycles_per_T": 30.5,
-   "eps_T": 3.353254784954629e-08,
+   "eps_T": 5.0025591447067086e-08,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2855,7 +2855,7 @@
    "d_req": 25,
    "qubits": 9178,
    "cycles_per_T": 42.2,
-   "eps_T": 1.5418497589791968e-09,
+   "eps_T": 1.5602825698124434e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   },
   {
@@ -2864,7 +2864,7 @@
    "d_req": 25,
    "qubits": 9186,
    "cycles_per_T": 54.3,
-   "eps_T": 1.3099539231120616e-09,
+   "eps_T": 1.3071902449368622e-09,
    "source": "factory.simulate(consume=False), Gidney-noise X+Z calibration"
   }
  ],
@@ -2873,7 +2873,7 @@
    "name": "cult_d1=5_att5",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 3.194642984285564e-08,
+   "eps_T": 3.2231046392961984e-08,
    "volume_per_T": 7375.755270727277,
    "estimate": false,
    "attempts": 4.77,
@@ -2881,13 +2881,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 3.194642984285564e-08,
+   "eps_T_stage": 3.2231046392961984e-08,
+   "eps_T_scale": 5.754735854486031e-07
   },
   {
    "name": "cult_d1=5_att5",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 1.147511919182804e-08,
+   "eps_T": 1.1759735741934384e-08,
    "volume_per_T": 8214.104892130046,
    "estimate": false,
    "attempts": 5.31,
@@ -2895,13 +2898,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 1.147511919182804e-08,
+   "eps_T_stage": 1.1759735741934384e-08,
+   "eps_T_scale": 2.0670942002767062e-07
   },
   {
    "name": "cult_d1=5_att6",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 1.0628008992770944e-09,
+   "eps_T": 1.3474174493834385e-09,
    "volume_per_T": 9227.194331685558,
    "estimate": false,
    "attempts": 5.97,
@@ -2909,13 +2915,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 1.0628008992770944e-09,
+   "eps_T_stage": 1.3474174493834385e-09,
+   "eps_T_scale": 1.9144982620390295e-08
   },
   {
    "name": "cult_d1=5_att7",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 4.992706545478968e-10,
+   "eps_T": 7.838872046542409e-10,
    "volume_per_T": 10423.795388030996,
    "estimate": false,
    "attempts": 6.74,
@@ -2923,13 +2932,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 4.992706545478968e-10,
+   "eps_T_stage": 7.838872046542409e-10,
+   "eps_T_scale": 8.993714637136625e-09
   },
   {
    "name": "cult_d1=5_att8",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 2.1473703555519034e-10,
+   "eps_T": 4.993535856615345e-10,
    "volume_per_T": 11768.635135540251,
    "estimate": false,
    "attempts": 7.61,
@@ -2937,13 +2949,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 2.1473703555519034e-10,
+   "eps_T_stage": 4.993535856615345e-10,
+   "eps_T_scale": 3.868209762011495e-09
   },
   {
    "name": "cult_d1=5_att8",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 5.976200770910425e-11,
+   "eps_T": 3.443785578154483e-10,
    "volume_per_T": 13100.99605086575,
    "estimate": false,
    "attempts": 8.47,
@@ -2951,13 +2966,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 5.976200770910425e-11,
+   "eps_T_stage": 3.443785578154483e-10,
+   "eps_T_scale": 1.0765352190882272e-09
   },
   {
    "name": "cult_d1=5_att10",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 5.029777185838997e-11,
+   "eps_T": 3.3491432196473407e-10,
    "volume_per_T": 14701.668294938665,
    "estimate": false,
    "attempts": 9.51,
@@ -2965,13 +2983,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 5.029777185838997e-11,
+   "eps_T_stage": 3.3491432196473407e-10,
+   "eps_T_scale": 9.060492597703109e-10
   },
   {
    "name": "cult_d1=5_att12",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 4.325222592210133e-11,
+   "eps_T": 3.278687760284454e-10,
    "volume_per_T": 18963.460657305823,
    "estimate": false,
    "attempts": 12.27,
@@ -2979,13 +3000,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 4.325222592210133e-11,
+   "eps_T_stage": 3.278687760284454e-10,
+   "eps_T_scale": 7.791328687575106e-10
   },
   {
    "name": "cult_d1=5_att20",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 3.596202802726852e-06,
+   "eps_T": 3.5988366280964636e-06,
    "volume_per_T": 13144.278450583368,
    "estimate": false,
    "attempts": 20.38,
@@ -2993,13 +3017,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 3.596202802726852e-06,
+   "eps_T_stage": 3.5988366280964636e-06,
+   "eps_T_scale": 1.7232497326323888e-05
   },
   {
    "name": "cult_d1=5_att23",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 6.861969312896777e-07,
+   "eps_T": 6.888307566592894e-07,
    "volume_per_T": 14668.00319753873,
    "estimate": false,
    "attempts": 22.74,
@@ -3007,13 +3034,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 6.861969312896777e-07,
+   "eps_T_stage": 6.888307566592894e-07,
+   "eps_T_scale": 3.28815904787536e-06
   },
   {
    "name": "cult_d1=5_att26",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 2.978734256336741e-07,
+   "eps_T": 3.0050725100328576e-07,
    "volume_per_T": 16619.252015567916,
    "estimate": false,
    "attempts": 25.76,
@@ -3021,13 +3051,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 2.978734256336741e-07,
+   "eps_T_stage": 3.0050725100328576e-07,
+   "eps_T_scale": 1.427367501889217e-06
   },
   {
    "name": "cult_d1=5_att29",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 2.0609462073340207e-07,
+   "eps_T": 2.087284461030137e-07,
    "volume_per_T": 18536.983107361142,
    "estimate": false,
    "attempts": 28.74,
@@ -3035,13 +3068,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 2.0609462073340207e-07,
+   "eps_T_stage": 2.087284461030137e-07,
+   "eps_T_scale": 9.875763953203952e-07
   },
   {
    "name": "cult_d1=5_att32",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 1.4186675692747566e-07,
+   "eps_T": 1.445005822970873e-07,
    "volume_per_T": 20704.800496362262,
    "estimate": false,
    "attempts": 32.1,
@@ -3049,13 +3085,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 1.4186675692747566e-07,
+   "eps_T_stage": 1.445005822970873e-07,
+   "eps_T_scale": 6.798055180851415e-07
   },
   {
    "name": "cult_d1=5_att36",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 9.098034600043679e-08,
+   "eps_T": 9.361417137004844e-08,
    "volume_per_T": 23124.302662208655,
    "estimate": false,
    "attempts": 35.85,
@@ -3063,13 +3102,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 9.098034600043679e-08,
+   "eps_T_stage": 9.361417137004844e-08,
+   "eps_T_scale": 4.3596500397912407e-07
   },
   {
    "name": "cult_d1=5_att40",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 6.869319538705312e-08,
+   "eps_T": 7.132702075666477e-08,
    "volume_per_T": 25913.75133805069,
    "estimate": false,
    "attempts": 40.17,
@@ -3077,13 +3119,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 6.869319538705312e-08,
+   "eps_T_stage": 7.132702075666477e-08,
+   "eps_T_scale": 3.291681172559135e-07
   },
   {
    "name": "cult_d1=5_att45",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 3.2242219813174955e-08,
+   "eps_T": 3.4876045182786605e-08,
    "volume_per_T": 28807.1580608257,
    "estimate": false,
    "attempts": 44.66,
@@ -3091,13 +3136,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 3.2242219813174955e-08,
+   "eps_T_stage": 3.4876045182786605e-08,
+   "eps_T_scale": 1.5450017621475222e-07
   },
   {
    "name": "cult_d1=5_att50",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 1.3094044583206633e-08,
+   "eps_T": 1.572786995281828e-08,
    "volume_per_T": 32487.26462193073,
    "estimate": false,
    "attempts": 50.36,
@@ -3105,13 +3153,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 1.3094044583206633e-08,
+   "eps_T_stage": 1.572786995281828e-08,
+   "eps_T_scale": 6.274481742235957e-08
   },
   {
    "name": "cult_d1=5_att59",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 9.96666522298153e-09,
+   "eps_T": 1.2600490592593178e-08,
    "volume_per_T": 37819.312343872756,
    "estimate": false,
    "attempts": 58.63,
@@ -3119,13 +3170,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 9.96666522298153e-09,
+   "eps_T_stage": 1.2600490592593178e-08,
+   "eps_T_scale": 4.775885600143661e-08
   },
   {
    "name": "cult_d1=5_att69",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 5.927193917808693e-09,
+   "eps_T": 8.561019287420342e-09,
    "volume_per_T": 44459.37605622456,
    "estimate": false,
    "attempts": 68.92,
@@ -3133,13 +3187,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 5.927193917808693e-09,
+   "eps_T_stage": 8.561019287420342e-09,
+   "eps_T_scale": 2.8402278443193666e-08
   },
   {
    "name": "cult_d1=5_att79",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 2.7025320732488425e-09,
+   "eps_T": 5.336357442860492e-09,
    "volume_per_T": 51274.875954425035,
    "estimate": false,
    "attempts": 79.49,
@@ -3147,13 +3204,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 2.7025320732488425e-09,
+   "eps_T_stage": 5.336357442860492e-09,
+   "eps_T_scale": 1.2950153059013268e-08
   },
   {
    "name": "cult_d1=5_att88",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 2.1231620948839324e-09,
+   "eps_T": 4.756987464495582e-09,
    "volume_per_T": 57066.94042309941,
    "estimate": false,
    "attempts": 88.47,
@@ -3161,13 +3221,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 2.1231620948839324e-09,
+   "eps_T_stage": 4.756987464495582e-09,
+   "eps_T_scale": 1.017389372359559e-08
   },
   {
    "name": "cult_d1=5_att117",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 1.6414883261014871e-09,
+   "eps_T": 4.275313695713137e-09,
    "volume_per_T": 75634.9355950081,
    "estimate": false,
    "attempts": 117.25,
@@ -3175,13 +3238,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 1.6414883261014871e-09,
+   "eps_T_stage": 4.275313695713137e-09,
+   "eps_T_scale": 7.865780864551612e-09
   },
   {
    "name": "cult_d1=5_att137",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 1.366706735546955e-09,
+   "eps_T": 4.000532105158605e-09,
    "volume_per_T": 88163.33566758082,
    "estimate": false,
    "attempts": 136.67,
@@ -3189,13 +3255,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 1.366706735546955e-09,
+   "eps_T_stage": 4.000532105158605e-09,
+   "eps_T_scale": 6.549066184010372e-09
   },
   {
    "name": "cult_d1=5_att158",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 9.484121471230475e-10,
+   "eps_T": 3.582237516734697e-09,
    "volume_per_T": 101966.74031969943,
    "estimate": false,
    "attempts": 158.07,
@@ -3203,13 +3272,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 9.484121471230475e-10,
+   "eps_T_stage": 3.582237516734697e-09,
+   "eps_T_scale": 4.5446574306539126e-09
   },
   {
    "name": "cult_d1=5_att197",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 7.885200415876903e-10,
+   "eps_T": 3.42234541119934e-09,
    "volume_per_T": 127164.3639761698,
    "estimate": false,
    "attempts": 197.13,
@@ -3217,763 +3289,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)"
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att20",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 3.596202802726852e-06,
-   "volume_per_T": 8886.768340899931,
-   "estimate": true,
-   "attempts": 20.38,
-   "errors": 176490,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att23",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 6.861969312896777e-07,
-   "volume_per_T": 9916.949563277161,
-   "estimate": true,
-   "attempts": 22.74,
-   "errors": 30178,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att26",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 2.978734256336741e-07,
-   "volume_per_T": 11236.177262726163,
-   "estimate": true,
-   "attempts": 25.76,
-   "errors": 11562,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att29",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 2.0609462073340207e-07,
-   "volume_per_T": 12532.743827180762,
-   "estimate": true,
-   "attempts": 28.74,
-   "errors": 7172,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att32",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 1.4186675692747566e-07,
-   "volume_per_T": 13998.392247050664,
-   "estimate": true,
-   "attempts": 32.1,
-   "errors": 4420,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att36",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 9.098034600043679e-08,
-   "volume_per_T": 15634.203244894235,
-   "estimate": true,
-   "attempts": 35.85,
-   "errors": 2538,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att40",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 6.869319538705312e-08,
-   "volume_per_T": 17520.132873837698,
-   "estimate": true,
-   "attempts": 40.17,
-   "errors": 1710,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att45",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 3.2242219813174955e-08,
-   "volume_per_T": 19476.34791888361,
-   "estimate": true,
-   "attempts": 44.66,
-   "errors": 722,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att50",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 1.3094044583206633e-08,
-   "volume_per_T": 21964.44603711199,
-   "estimate": true,
-   "attempts": 50.36,
-   "errors": 260,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att59",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 9.96666522298153e-09,
-   "volume_per_T": 25569.41173117175,
-   "estimate": true,
-   "attempts": 58.63,
-   "errors": 170,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att69",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 5.927193917808693e-09,
-   "volume_per_T": 30058.71924259833,
-   "estimate": true,
-   "attempts": 68.92,
-   "errors": 86,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att79",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 2.7025320732488425e-09,
-   "volume_per_T": 34666.63811394928,
-   "estimate": true,
-   "attempts": 79.49,
-   "errors": 34,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att88",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 2.1231620948839324e-09,
-   "volume_per_T": 38582.61838948752,
-   "estimate": true,
-   "attempts": 88.47,
-   "errors": 24,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att117",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 1.6414883261014871e-09,
-   "volume_per_T": 51136.329288725006,
-   "estimate": true,
-   "attempts": 117.25,
-   "errors": 14,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att137",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 1.366706735546955e-09,
-   "volume_per_T": 59606.70592793309,
-   "estimate": true,
-   "attempts": 136.67,
-   "errors": 10,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att158",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 9.484121471230475e-10,
-   "volume_per_T": 68939.1055663198,
-   "estimate": true,
-   "attempts": 158.07,
-   "errors": 6,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att197",
-   "p": 0.001,
-   "d_req": 11,
-   "eps_T": 7.885200415876903e-10,
-   "volume_per_T": 85975.06878165278,
-   "estimate": true,
-   "attempts": 197.13,
-   "errors": 4,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.68 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att20",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 3.596202802726852e-06,
-   "volume_per_T": 10852.892120461604,
-   "estimate": true,
-   "attempts": 20.38,
-   "errors": 176490,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att23",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 6.861969312896777e-07,
-   "volume_per_T": 12110.992392922757,
-   "estimate": true,
-   "attempts": 22.74,
-   "errors": 30178,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att26",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 2.978734256336741e-07,
-   "volume_per_T": 13722.08827786341,
-   "estimate": true,
-   "attempts": 25.76,
-   "errors": 11562,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att29",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 2.0609462073340207e-07,
-   "volume_per_T": 15305.509439666568,
-   "estimate": true,
-   "attempts": 28.74,
-   "errors": 7172,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att32",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 1.4186675692747566e-07,
-   "volume_per_T": 17095.420414859407,
-   "estimate": true,
-   "attempts": 32.1,
-   "errors": 4420,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att36",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 9.098034600043679e-08,
-   "volume_per_T": 19093.14102690173,
-   "estimate": true,
-   "attempts": 35.85,
-   "errors": 2538,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att40",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 6.869319538705312e-08,
-   "volume_per_T": 21396.316942437395,
-   "estimate": true,
-   "attempts": 40.17,
-   "errors": 1710,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att45",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 3.2242219813174955e-08,
-   "volume_per_T": 23785.328339369713,
-   "estimate": true,
-   "attempts": 44.66,
-   "errors": 722,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att50",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 1.3094044583206633e-08,
-   "volume_per_T": 26823.8975274489,
-   "estimate": true,
-   "attempts": 50.36,
-   "errors": 260,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att59",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 9.96666522298153e-09,
-   "volume_per_T": 31226.43197808065,
-   "estimate": true,
-   "attempts": 58.63,
-   "errors": 170,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att69",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 5.927193917808693e-09,
-   "volume_per_T": 36708.96153754442,
-   "estimate": true,
-   "attempts": 68.92,
-   "errors": 86,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att79",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 2.7025320732488425e-09,
-   "volume_per_T": 42336.344236433,
-   "estimate": true,
-   "attempts": 79.49,
-   "errors": 34,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att88",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 2.1231620948839324e-09,
-   "volume_per_T": 47118.70266482523,
-   "estimate": true,
-   "attempts": 88.47,
-   "errors": 24,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att117",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 1.6414883261014871e-09,
-   "volume_per_T": 62449.81796731893,
-   "estimate": true,
-   "attempts": 117.25,
-   "errors": 14,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att137",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 1.366706735546955e-09,
-   "volume_per_T": 72794.19517606411,
-   "estimate": true,
-   "attempts": 136.67,
-   "errors": 10,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att158",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 9.484121471230475e-10,
-   "volume_per_T": 84191.31082206387,
-   "estimate": true,
-   "attempts": 158.07,
-   "errors": 6,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att197",
-   "p": 0.001,
-   "d_req": 13,
-   "eps_T": 7.885200415876903e-10,
-   "volume_per_T": 104996.33958524617,
-   "estimate": true,
-   "attempts": 197.13,
-   "errors": 4,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.83 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att5",
-   "p": 0.0005,
-   "d_req": 11,
-   "eps_T": 3.194642984285564e-08,
-   "volume_per_T": 4574.649386928798,
-   "estimate": true,
-   "attempts": 4.77,
-   "errors": 7596,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.62 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att5",
-   "p": 0.0005,
-   "d_req": 11,
-   "eps_T": 1.147511919182804e-08,
-   "volume_per_T": 5094.617233042543,
-   "estimate": true,
-   "attempts": 5.31,
-   "errors": 2450,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.62 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att6",
-   "p": 0.0005,
-   "d_req": 11,
-   "eps_T": 1.0628008992770944e-09,
-   "volume_per_T": 5722.9635939854115,
-   "estimate": true,
-   "attempts": 5.97,
-   "errors": 202,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.62 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att7",
-   "p": 0.0005,
-   "d_req": 11,
-   "eps_T": 4.992706545478968e-10,
-   "volume_per_T": 6465.128984224729,
-   "estimate": true,
-   "attempts": 6.74,
-   "errors": 84,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.62 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att8",
-   "p": 0.0005,
-   "d_req": 11,
-   "eps_T": 2.1473703555519034e-10,
-   "volume_per_T": 7299.236150290458,
-   "estimate": true,
-   "attempts": 7.61,
-   "errors": 32,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.62 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att8",
-   "p": 0.0005,
-   "d_req": 11,
-   "eps_T": 5.976200770910425e-11,
-   "volume_per_T": 8125.603596164335,
-   "estimate": true,
-   "attempts": 8.47,
-   "errors": 8,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.62 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att10",
-   "p": 0.0005,
-   "d_req": 11,
-   "eps_T": 5.029777185838997e-11,
-   "volume_per_T": 9118.385220723318,
-   "estimate": true,
-   "attempts": 9.51,
-   "errors": 6,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.62 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=11scaled_att12",
-   "p": 0.0005,
-   "d_req": 11,
-   "eps_T": 4.325222592210133e-11,
-   "volume_per_T": 11761.66785444855,
-   "estimate": true,
-   "attempts": 12.27,
-   "errors": 4,
-   "d1": 5,
-   "d2": 11,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.62 (= our baseline(11)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att5",
-   "p": 0.0005,
-   "d_req": 13,
-   "eps_T": 3.194642984285564e-08,
-   "volume_per_T": 5868.295402107422,
-   "estimate": true,
-   "attempts": 4.77,
-   "errors": 7596,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.80 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att5",
-   "p": 0.0005,
-   "d_req": 13,
-   "eps_T": 1.147511919182804e-08,
-   "volume_per_T": 6535.302786173091,
-   "estimate": true,
-   "attempts": 5.31,
-   "errors": 2450,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.80 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att6",
-   "p": 0.0005,
-   "d_req": 13,
-   "eps_T": 1.0628008992770944e-09,
-   "volume_per_T": 7341.336593132765,
-   "estimate": true,
-   "attempts": 5.97,
-   "errors": 202,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.80 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att7",
-   "p": 0.0005,
-   "d_req": 13,
-   "eps_T": 4.992706545478968e-10,
-   "volume_per_T": 8293.375837842741,
-   "estimate": true,
-   "attempts": 6.74,
-   "errors": 84,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.80 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att8",
-   "p": 0.0005,
-   "d_req": 13,
-   "eps_T": 2.1473703555519034e-10,
-   "volume_per_T": 9363.356689593764,
-   "estimate": true,
-   "attempts": 7.61,
-   "errors": 32,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.80 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att8",
-   "p": 0.0005,
-   "d_req": 13,
-   "eps_T": 5.976200770910425e-11,
-   "volume_per_T": 10423.40913796917,
-   "estimate": true,
-   "attempts": 8.47,
-   "errors": 8,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.80 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att10",
-   "p": 0.0005,
-   "d_req": 13,
-   "eps_T": 5.029777185838997e-11,
-   "volume_per_T": 11696.93533635778,
-   "estimate": true,
-   "attempts": 9.51,
-   "errors": 6,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.80 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
-  },
-  {
-   "name": "cult_d1=5_d2=13scaled_att12",
-   "p": 0.0005,
-   "d_req": 13,
-   "eps_T": 4.325222592210133e-11,
-   "volume_per_T": 15087.700838579995,
-   "estimate": true,
-   "attempts": 12.27,
-   "errors": 4,
-   "d1": 5,
-   "d2": 13,
-   "q": 463,
-   "source": "Gidney 2024 d2=15 tail, volume x0.80 (= our baseline(13)/Gidney baseline(15)); error assumed d2-independent",
-   "scaled": true
+   "source": "Gidney 2024 Fig.1 data: Strilanc/magic-state-cultivation assets/emulated-historical-stats.csv (v = expected qubit-rounds incl. retries; d2=15 grafted code ~ d=11 surface code per Sec 3.3)",
+   "eps_T_proxy": 7.885200415876903e-10,
+   "eps_T_stage": 3.42234541119934e-09,
+   "eps_T_scale": 3.77847698080579e-09
   },
   {
    "name": "cult_d1=3_d2=7_att4.5",
    "p": 0.001,
    "d_req": 7,
-   "eps_T": 3.7402329826746175e-06,
+   "eps_T": 3.953912078102975e-06,
    "volume_per_T": 1995.8570502133523,
    "estimate": false,
    "attempts": 4.45,
@@ -3981,13 +3306,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.7402329826746175e-06,
+   "eps_T_stage": 3.953912078102975e-06,
+   "eps_T_scale": 4.907644026246368e-06
   },
   {
    "name": "cult_d1=3_d2=7_att3.9",
    "p": 0.001,
    "d_req": 7,
-   "eps_T": 3.86749528010876e-06,
+   "eps_T": 4.081174375537118e-06,
    "volume_per_T": 1733.5639025887108,
    "estimate": false,
    "attempts": 3.87,
@@ -3995,13 +3323,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.86749528010876e-06,
+   "eps_T_stage": 4.081174375537118e-06,
+   "eps_T_scale": 5.0746277560466545e-06
   },
   {
    "name": "cult_d1=3_d2=7_att3.4",
    "p": 0.001,
    "d_req": 7,
-   "eps_T": 5.583704462421703e-06,
+   "eps_T": 5.79738355785006e-06,
    "volume_per_T": 1526.1198404297884,
    "estimate": false,
    "attempts": 3.4,
@@ -4009,13 +3340,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 5.583704462421703e-06,
+   "eps_T_stage": 5.79738355785006e-06,
+   "eps_T_scale": 7.326504518906589e-06
   },
   {
    "name": "cult_d1=3_d2=7_att3.0",
    "p": 0.001,
    "d_req": 7,
-   "eps_T": 8.951038123862409e-06,
+   "eps_T": 9.164717219290767e-06,
    "volume_per_T": 1355.4757699654047,
    "estimate": false,
    "attempts": 3.02,
@@ -4023,13 +3357,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 8.951038123862409e-06,
+   "eps_T_stage": 9.164717219290767e-06,
+   "eps_T_scale": 1.1744858938135945e-05
   },
   {
    "name": "cult_d1=3_d2=7_att2.7",
    "p": 0.001,
    "d_req": 7,
-   "eps_T": 2.420092446455858e-05,
+   "eps_T": 2.441460355998694e-05,
    "volume_per_T": 1205.312081060466,
    "estimate": false,
    "attempts": 2.69,
@@ -4037,13 +3374,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 2.420092446455858e-05,
+   "eps_T_stage": 2.441460355998694e-05,
+   "eps_T_scale": 3.175457863942988e-05
   },
   {
    "name": "cult_d1=3_d2=7_att2.4",
    "p": 0.001,
    "d_req": 7,
-   "eps_T": 4.452734576982416e-05,
+   "eps_T": 4.4741024865252514e-05,
    "volume_per_T": 1059.3902520534757,
    "estimate": false,
    "attempts": 2.36,
@@ -4051,13 +3391,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 4.452734576982416e-05,
+   "eps_T_stage": 4.4741024865252514e-05,
+   "eps_T_scale": 5.8425334326531334e-05
   },
   {
    "name": "cult_d1=3_d2=7_att2.1",
    "p": 0.001,
    "d_req": 7,
-   "eps_T": 0.0001273877144677694,
+   "eps_T": 0.00012760139356319774,
    "volume_per_T": 949.7704136709282,
    "estimate": false,
    "attempts": 2.12,
@@ -4065,13 +3408,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 0.0001273877144677694,
+   "eps_T_stage": 0.00012760139356319774,
+   "eps_T_scale": 0.00016714829231784077
   },
   {
    "name": "cult_d1=3_d2=7_att1.9",
    "p": 0.001,
    "d_req": 7,
-   "eps_T": 0.0010618130303059422,
+   "eps_T": 0.0010620267094013705,
    "volume_per_T": 854.6047434183355,
    "estimate": false,
    "attempts": 1.91,
@@ -4079,13 +3425,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 0.0010618130303059422,
+   "eps_T_stage": 0.0010620267094013705,
+   "eps_T_scale": 0.001393228817378418
   },
   {
    "name": "cult_d1=3_d2=9_att4.4",
    "p": 0.001,
    "d_req": 9,
-   "eps_T": 2.8353486459881147e-06,
+   "eps_T": 3.0490277414164722e-06,
    "volume_per_T": 3090.169770418785,
    "estimate": false,
    "attempts": 4.43,
@@ -4093,13 +3442,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 2.8353486459881147e-06,
+   "eps_T_stage": 3.0490277414164722e-06,
+   "eps_T_scale": 3.720324885980459e-06
   },
   {
    "name": "cult_d1=3_d2=9_att3.9",
    "p": 0.001,
    "d_req": 9,
-   "eps_T": 3.451560795791857e-06,
+   "eps_T": 3.6652398912202146e-06,
    "volume_per_T": 2735.827432018823,
    "estimate": false,
    "attempts": 3.92,
@@ -4107,13 +3459,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.451560795791857e-06,
+   "eps_T_stage": 3.6652398912202146e-06,
+   "eps_T_scale": 4.528870741250207e-06
   },
   {
    "name": "cult_d1=3_d2=9_att3.5",
    "p": 0.001,
    "d_req": 9,
-   "eps_T": 3.872164901120812e-06,
+   "eps_T": 4.085843996549169e-06,
    "volume_per_T": 2411.5244301262824,
    "estimate": false,
    "attempts": 3.46,
@@ -4121,13 +3476,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.872164901120812e-06,
+   "eps_T_stage": 4.085843996549169e-06,
+   "eps_T_scale": 5.080754871060822e-06
   },
   {
    "name": "cult_d1=3_d2=9_att3.1",
    "p": 0.001,
    "d_req": 9,
-   "eps_T": 5.041585704128763e-06,
+   "eps_T": 5.255264799557121e-06,
    "volume_per_T": 2144.2684268251796,
    "estimate": false,
    "attempts": 3.07,
@@ -4135,13 +3493,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 5.041585704128763e-06,
+   "eps_T_stage": 5.255264799557121e-06,
+   "eps_T_scale": 6.61517827319504e-06
   },
   {
    "name": "cult_d1=3_d2=9_att2.8",
    "p": 0.001,
    "d_req": 9,
-   "eps_T": 8.400793919240073e-06,
+   "eps_T": 8.614473014668432e-06,
    "volume_per_T": 1927.5364176751898,
    "estimate": false,
    "attempts": 2.76,
@@ -4149,13 +3510,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 8.400793919240073e-06,
+   "eps_T_stage": 8.614473014668432e-06,
+   "eps_T_scale": 1.1022871111094098e-05
   },
   {
    "name": "cult_d1=3_d2=9_att2.5",
    "p": 0.001,
    "d_req": 9,
-   "eps_T": 2.6691292774409062e-05,
+   "eps_T": 2.690497186983742e-05,
    "volume_per_T": 1730.2672286701466,
    "estimate": false,
    "attempts": 2.48,
@@ -4163,13 +3527,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 2.6691292774409062e-05,
+   "eps_T_stage": 2.690497186983742e-05,
+   "eps_T_scale": 3.50222470482174e-05
   },
   {
    "name": "cult_d1=3_d2=9_att2.2",
    "p": 0.001,
    "d_req": 9,
-   "eps_T": 4.938940344108633e-05,
+   "eps_T": 4.9603082536514684e-05,
    "volume_per_T": 1554.6043157345878,
    "estimate": false,
    "attempts": 2.23,
@@ -4177,13 +3544,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 4.938940344108633e-05,
+   "eps_T_stage": 4.9603082536514684e-05,
+   "eps_T_scale": 6.480494982004855e-05
   },
   {
    "name": "cult_d1=3_d2=9_att2.0",
    "p": 0.001,
    "d_req": 9,
-   "eps_T": 0.0001711380177660803,
+   "eps_T": 0.00017135169686150864,
    "volume_per_T": 1396.4899946614767,
    "estimate": false,
    "attempts": 2.0,
@@ -4191,13 +3561,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 0.0001711380177660803,
+   "eps_T_stage": 0.00017135169686150864,
+   "eps_T_scale": 0.00022455405169780426
   },
   {
    "name": "cult_d1=3_d2=11_att4.2",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 1.5249086198509554e-06,
+   "eps_T": 1.7385877152793131e-06,
    "volume_per_T": 4274.478729692368,
    "estimate": false,
    "attempts": 4.24,
@@ -4205,13 +3578,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.5249086198509554e-06,
+   "eps_T_stage": 1.7385877152793131e-06,
+   "eps_T_scale": 2.000866981669035e-06
   },
   {
    "name": "cult_d1=3_d2=11_att3.6",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 1.8807580583429958e-06,
+   "eps_T": 2.0944371537713533e-06,
    "volume_per_T": 3649.8198546699546,
    "estimate": false,
    "attempts": 3.62,
@@ -4219,13 +3595,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.8807580583429958e-06,
+   "eps_T_stage": 2.0944371537713533e-06,
+   "eps_T_scale": 2.4677850531229047e-06
   },
   {
    "name": "cult_d1=3_d2=11_att3.2",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 2.427713396167241e-06,
+   "eps_T": 2.6413924915955986e-06,
    "volume_per_T": 3223.4850785762337,
    "estimate": false,
    "attempts": 3.19,
@@ -4233,13 +3612,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 2.427713396167241e-06,
+   "eps_T_stage": 2.6413924915955986e-06,
+   "eps_T_scale": 3.1854574838860874e-06
   },
   {
    "name": "cult_d1=3_d2=11_att2.9",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 4.572338336119221e-06,
+   "eps_T": 4.786017431547579e-06,
    "volume_per_T": 2883.76733488266,
    "estimate": false,
    "attempts": 2.86,
@@ -4247,13 +3629,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 4.572338336119221e-06,
+   "eps_T_stage": 4.786017431547579e-06,
+   "eps_T_scale": 5.999468221679193e-06
   },
   {
    "name": "cult_d1=3_d2=11_att2.5",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 2.0254810555295707e-05,
+   "eps_T": 2.0468489650724065e-05,
    "volume_per_T": 2542.224960838759,
    "estimate": false,
    "attempts": 2.52,
@@ -4261,13 +3646,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 2.0254810555295707e-05,
+   "eps_T_stage": 2.0468489650724065e-05,
+   "eps_T_scale": 2.6576793607484336e-05
   },
   {
    "name": "cult_d1=3_d2=11_att2.2",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 4.047193870053758e-05,
+   "eps_T": 4.0685617795965936e-05,
    "volume_per_T": 2263.9108304741535,
    "estimate": false,
    "attempts": 2.24,
@@ -4275,13 +3663,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 4.047193870053758e-05,
+   "eps_T_stage": 4.0685617795965936e-05,
+   "eps_T_scale": 5.3104143275125384e-05
   },
   {
    "name": "cult_d1=3_d2=11_att2.0",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 0.00015147766705417826,
+   "eps_T": 0.0001516913461496066,
    "volume_per_T": 2028.3811211303746,
    "estimate": false,
    "attempts": 2.01,
@@ -4289,13 +3680,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 0.00015147766705417826,
+   "eps_T_stage": 0.0001516913461496066,
+   "eps_T_scale": 0.00019875726225390764
   },
   {
    "name": "cult_d1=3_d2=7_att2.2",
    "p": 0.0005,
    "d_req": 7,
-   "eps_T": 3.5327430374860246e-07,
+   "eps_T": 4.373402423642299e-07,
    "volume_per_T": 1209.0892993395623,
    "estimate": false,
    "attempts": 2.21,
@@ -4303,13 +3697,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.5327430374860246e-07,
+   "eps_T_stage": 4.373402423642299e-07,
+   "eps_T_scale": 7.24503502916209e-07
   },
   {
    "name": "cult_d1=3_d2=7_att2.0",
    "p": 0.0005,
    "d_req": 7,
-   "eps_T": 4.092274425467607e-07,
+   "eps_T": 4.932933811623881e-07,
    "volume_per_T": 1084.327883706986,
    "estimate": false,
    "attempts": 1.98,
@@ -4317,13 +3714,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 4.092274425467607e-07,
+   "eps_T_stage": 4.932933811623881e-07,
+   "eps_T_scale": 8.39253555858838e-07
   },
   {
    "name": "cult_d1=3_d2=7_att1.8",
    "p": 0.0005,
    "d_req": 7,
-   "eps_T": 4.711541080068023e-07,
+   "eps_T": 5.552200466224297e-07,
    "volume_per_T": 967.521358252462,
    "estimate": false,
    "attempts": 1.77,
@@ -4331,13 +3731,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 4.711541080068023e-07,
+   "eps_T_stage": 5.552200466224297e-07,
+   "eps_T_scale": 9.66254262034309e-07
   },
   {
    "name": "cult_d1=3_d2=7_att1.6",
    "p": 0.0005,
    "d_req": 7,
-   "eps_T": 1.240056567989024e-06,
+   "eps_T": 1.3241225066046514e-06,
    "volume_per_T": 870.5890598959775,
    "estimate": false,
    "attempts": 1.59,
@@ -4345,13 +3748,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.240056567989024e-06,
+   "eps_T_stage": 1.3241225066046514e-06,
+   "eps_T_scale": 2.54313805954491e-06
   },
   {
    "name": "cult_d1=3_d2=7_att1.4",
    "p": 0.0005,
    "d_req": 7,
-   "eps_T": 1.5024383278362541e-05,
+   "eps_T": 1.5108449216978169e-05,
    "volume_per_T": 782.5688032299203,
    "estimate": false,
    "attempts": 1.43,
@@ -4359,13 +3765,16 @@
    "d1": 3,
    "d2": 7,
    "q": 102,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.5024383278362541e-05,
+   "eps_T_stage": 1.5108449216978169e-05,
+   "eps_T_scale": 3.081236930856859e-05
   },
   {
    "name": "cult_d1=3_d2=9_att2.0",
    "p": 0.0005,
    "d_req": 9,
-   "eps_T": 2.576080119888057e-07,
+   "eps_T": 3.4167395060443307e-07,
    "volume_per_T": 1742.5769169816344,
    "estimate": false,
    "attempts": 2.03,
@@ -4373,13 +3782,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 2.576080119888057e-07,
+   "eps_T_stage": 3.4167395060443307e-07,
+   "eps_T_scale": 5.28308753523115e-07
   },
   {
    "name": "cult_d1=3_d2=9_att1.8",
    "p": 0.0005,
    "d_req": 9,
-   "eps_T": 3.3853236222181717e-07,
+   "eps_T": 4.225983008374446e-07,
    "volume_per_T": 1553.9189110546956,
    "estimate": false,
    "attempts": 1.81,
@@ -4387,13 +3799,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.3853236222181717e-07,
+   "eps_T_stage": 4.225983008374446e-07,
+   "eps_T_scale": 6.942703719961e-07
   },
   {
    "name": "cult_d1=3_d2=9_att1.6",
    "p": 0.0005,
    "d_req": 9,
-   "eps_T": 5.962492345650452e-07,
+   "eps_T": 6.803151731806726e-07,
    "volume_per_T": 1393.3214938811163,
    "estimate": false,
    "attempts": 1.63,
@@ -4401,13 +3816,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 5.962492345650452e-07,
+   "eps_T_stage": 6.803151731806726e-07,
+   "eps_T_scale": 1.2228023789720441e-06
   },
   {
    "name": "cult_d1=3_d2=9_att1.5",
    "p": 0.0005,
    "d_req": 9,
-   "eps_T": 5.513781704677088e-06,
+   "eps_T": 5.597847643292715e-06,
    "volume_per_T": 1252.0432423603493,
    "estimate": false,
    "attempts": 1.46,
@@ -4415,13 +3833,16 @@
    "d1": 3,
    "d2": 9,
    "q": 166,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 5.513781704677088e-06,
+   "eps_T_stage": 5.597847643292715e-06,
+   "eps_T_scale": 1.1307797133744006e-05
   },
   {
    "name": "cult_d1=3_d2=11_att2.0",
    "p": 0.0005,
    "d_req": 11,
-   "eps_T": 3.234196060522805e-07,
+   "eps_T": 4.074855446679079e-07,
    "volume_per_T": 2513.3021811963763,
    "estimate": false,
    "attempts": 2.02,
@@ -4429,13 +3850,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.234196060522805e-07,
+   "eps_T_stage": 4.074855446679079e-07,
+   "eps_T_scale": 6.632767654207981e-07
   },
   {
    "name": "cult_d1=3_d2=11_att1.8",
    "p": 0.0005,
    "d_req": 11,
-   "eps_T": 3.7359266288112853e-07,
+   "eps_T": 4.5765860149675596e-07,
    "volume_per_T": 2247.637403172443,
    "estimate": false,
    "attempts": 1.81,
@@ -4443,13 +3867,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.7359266288112853e-07,
+   "eps_T_stage": 4.5765860149675596e-07,
+   "eps_T_scale": 7.661728861938002e-07
   },
   {
    "name": "cult_d1=3_d2=11_att1.6",
    "p": 0.0005,
    "d_req": 11,
-   "eps_T": 5.955498404427231e-07,
+   "eps_T": 6.796157790583505e-07,
    "volume_per_T": 2019.5054485176342,
    "estimate": false,
    "attempts": 1.62,
@@ -4457,13 +3884,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 5.955498404427231e-07,
+   "eps_T_stage": 6.796157790583505e-07,
+   "eps_T_scale": 1.2213680445577811e-06
   },
   {
    "name": "cult_d1=3_d2=11_att1.5",
    "p": 0.0005,
    "d_req": 11,
-   "eps_T": 5.997727494156804e-06,
+   "eps_T": 6.081793432772431e-06,
    "volume_per_T": 1815.9154500476682,
    "estimate": false,
    "attempts": 1.46,
@@ -4471,13 +3901,16 @@
    "d1": 3,
    "d2": 11,
    "q": 246,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 5.997727494156804e-06,
+   "eps_T_stage": 6.081793432772431e-06,
+   "eps_T_scale": 1.2300284886119887e-05
   },
   {
    "name": "cult_d1=5_d2=11_att4.8",
    "p": 0.0005,
    "d_req": 11,
-   "eps_T": 7.739756567628484e-08,
+   "eps_T": 7.768218222639119e-08,
    "volume_per_T": 4636.942034572788,
    "estimate": false,
    "attempts": 4.84,
@@ -4485,13 +3918,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 7.739756567628484e-08,
+   "eps_T_stage": 7.768218222639119e-08,
+   "eps_T_scale": 1.3942169702160369e-06
   },
   {
    "name": "cult_d1=5_d2=13_att4.5",
    "p": 0.0005,
    "d_req": 13,
-   "eps_T": 1.0723860877315305e-07,
+   "eps_T": 1.0752322532325939e-07,
    "volume_per_T": 5494.376689469074,
    "estimate": false,
    "attempts": 4.47,
@@ -4499,13 +3935,16 @@
    "d1": 5,
    "d2": 13,
    "q": 351,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.0723860877315305e-07,
+   "eps_T_stage": 1.0752322532325939e-07,
+   "eps_T_scale": 1.931764738431566e-06
   },
   {
    "name": "cult_d1=5_d2=15_att4.5",
    "p": 0.0005,
    "d_req": 15,
-   "eps_T": 7.181009590346024e-08,
+   "eps_T": 7.209471245356658e-08,
    "volume_per_T": 6938.157683091156,
    "estimate": false,
    "attempts": 4.49,
@@ -4513,13 +3952,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 7.181009590346024e-08,
+   "eps_T_stage": 7.209471245356658e-08,
+   "eps_T_scale": 1.2935659341043395e-06
   },
   {
    "name": "cult_d1=5_d2=11_att24.9",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 4.977864928024553e-07,
+   "eps_T": 5.00420318172067e-07,
    "volume_per_T": 10853.074692748949,
    "estimate": false,
    "attempts": 24.89,
@@ -4527,13 +3969,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 4.977864928024553e-07,
+   "eps_T_stage": 5.00420318172067e-07,
+   "eps_T_scale": 2.385322763163978e-06
   },
   {
    "name": "cult_d1=5_d2=11_att22.3",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 1.2492062521166797e-06,
+   "eps_T": 1.2518400774862914e-06,
    "volume_per_T": 9727.154223823047,
    "estimate": false,
    "attempts": 22.31,
@@ -4541,13 +3986,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.2492062521166797e-06,
+   "eps_T_stage": 1.2518400774862914e-06,
+   "eps_T_scale": 5.986020416675271e-06
   },
   {
    "name": "cult_d1=5_d2=11_att20.0",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 1.5045773364155294e-05,
+   "eps_T": 1.5048407189524905e-05,
    "volume_per_T": 8724.41578081157,
    "estimate": false,
    "attempts": 20.01,
@@ -4555,13 +4003,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.5045773364155294e-05,
+   "eps_T_stage": 1.5048407189524905e-05,
+   "eps_T_scale": 7.209722685096702e-05
   },
   {
    "name": "cult_d1=5_d2=13_att24.7",
    "p": 0.001,
    "d_req": 13,
-   "eps_T": 3.9515283795557605e-07,
+   "eps_T": 3.977866633251877e-07,
    "volume_per_T": 13151.837344903437,
    "estimate": false,
    "attempts": 24.7,
@@ -4569,13 +4020,16 @@
    "d1": 5,
    "d2": 13,
    "q": 351,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.9515283795557605e-07,
+   "eps_T_stage": 3.977866633251877e-07,
+   "eps_T_scale": 1.8935167444937812e-06
   },
   {
    "name": "cult_d1=5_d2=13_att22.1",
    "p": 0.001,
    "d_req": 13,
-   "eps_T": 1.0611129430047058e-06,
+   "eps_T": 1.0637467683743175e-06,
    "volume_per_T": 11772.309758398342,
    "estimate": false,
    "attempts": 22.11,
@@ -4583,13 +4037,16 @@
    "d1": 5,
    "d2": 13,
    "q": 351,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.0611129430047058e-06,
+   "eps_T_stage": 1.0637467683743175e-06,
+   "eps_T_scale": 5.084703771264243e-06
   },
   {
    "name": "cult_d1=5_d2=13_att19.9",
    "p": 0.001,
    "d_req": 13,
-   "eps_T": 1.643751813487055e-05,
+   "eps_T": 1.6440151960240163e-05,
    "volume_per_T": 10571.758037260724,
    "estimate": false,
    "attempts": 19.85,
@@ -4597,13 +4054,16 @@
    "d1": 5,
    "d2": 13,
    "q": 351,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 1.643751813487055e-05,
+   "eps_T_stage": 1.6440151960240163e-05,
+   "eps_T_scale": 7.876627177304162e-05
   },
   {
    "name": "cult_d1=5_d2=15_att24.1",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 3.86303885468624e-07,
+   "eps_T": 3.8893771083823566e-07,
    "volume_per_T": 15574.774674791099,
    "estimate": false,
    "attempts": 24.14,
@@ -4611,13 +4071,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 3.86303885468624e-07,
+   "eps_T_stage": 3.8893771083823566e-07,
+   "eps_T_scale": 1.8511138105000305e-06
   },
   {
    "name": "cult_d1=5_d2=15_att21.7",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 9.53571719906165e-07,
+   "eps_T": 9.562055452757767e-07,
    "volume_per_T": 13980.199369138458,
    "estimate": false,
    "attempts": 21.67,
@@ -4625,13 +4088,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 9.53571719906165e-07,
+   "eps_T_stage": 9.562055452757767e-07,
+   "eps_T_scale": 4.569381376734658e-06
   },
   {
    "name": "cult_d1=5_d2=15_att19.5",
    "p": 0.001,
    "d_req": 15,
-   "eps_T": 5.1401067122032804e-05,
+   "eps_T": 5.140370094740242e-05,
    "volume_per_T": 12578.805678503493,
    "estimate": false,
    "attempts": 19.5,
@@ -4639,13 +4105,16 @@
    "d1": 5,
    "d2": 15,
    "q": 463,
-   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep"
+   "source": "our rerun of Gidney's construction (run_cultiv2.py), desaturation sampler, errors x2 (S->T), v = baseline/keep",
+   "eps_T_proxy": 5.1401067122032804e-05,
+   "eps_T_stage": 5.140370094740242e-05,
+   "eps_T_scale": 0.000246306674106083
   },
   {
    "name": "cult_d1=5_d2=11_deep_att43.8",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 7.009409378579234e-08,
+   "eps_T": 7.2727919155404e-08,
    "volume_per_T": 19102.980052123712,
    "estimate": false,
    "scaled": false,
@@ -4654,13 +4123,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 7.009409378579234e-08,
+   "eps_T_stage": 7.2727919155404e-08,
+   "eps_T_scale": 3.3588102507424347e-07
   },
   {
    "name": "cult_d1=5_d2=11_deep_att38.7",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 9.29494942656746e-08,
+   "eps_T": 9.558331963528625e-08,
    "volume_per_T": 16887.893010771524,
    "estimate": false,
    "scaled": false,
@@ -4669,13 +4141,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 9.29494942656746e-08,
+   "eps_T_stage": 9.558331963528625e-08,
+   "eps_T_scale": 4.454008851230116e-07
   },
   {
    "name": "cult_d1=5_d2=11_deep_att34.3",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 1.783753014971382e-07,
+   "eps_T": 1.8100912686674985e-07,
    "volume_per_T": 14957.914831124483,
    "estimate": false,
    "scaled": false,
@@ -4684,13 +4159,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 1.783753014971382e-07,
+   "eps_T_stage": 1.8100912686674985e-07,
+   "eps_T_scale": 8.547493216458417e-07
   },
   {
    "name": "cult_d1=5_d2=11_deep_att30.2",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 2.9001002643205756e-07,
+   "eps_T": 2.926438518016692e-07,
    "volume_per_T": 13172.901953712593,
    "estimate": false,
    "scaled": false,
@@ -4699,13 +4177,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 2.9001002643205756e-07,
+   "eps_T_stage": 2.926438518016692e-07,
+   "eps_T_scale": 1.3896872004293197e-06
   },
   {
    "name": "cult_d1=5_d2=11_deep_att27.1",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 4.119484900692092e-07,
+   "eps_T": 4.1458231543882085e-07,
    "volume_per_T": 11817.864520261668,
    "estimate": false,
    "scaled": false,
@@ -4714,13 +4195,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 4.119484900692092e-07,
+   "eps_T_stage": 4.1458231543882085e-07,
+   "eps_T_scale": 1.973999143851956e-06
   },
   {
    "name": "cult_d1=5_d2=11_deep_att24.1",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 8.388964421442461e-07,
+   "eps_T": 8.415302675138578e-07,
    "volume_per_T": 10511.599076372313,
    "estimate": false,
    "scaled": false,
@@ -4729,13 +4213,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 8.388964421442461e-07,
+   "eps_T_stage": 8.415302675138578e-07,
+   "eps_T_scale": 4.01987359704846e-06
   },
   {
    "name": "cult_d1=5_d2=11_deep_att21.5",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 2.0081696564815075e-06,
+   "eps_T": 2.010803481851119e-06,
    "volume_per_T": 9395.592395965787,
    "estimate": false,
    "scaled": false,
@@ -4744,13 +4231,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 2.0081696564815075e-06,
+   "eps_T_stage": 2.010803481851119e-06,
+   "eps_T_scale": 9.622866154790327e-06
   },
   {
    "name": "cult_d1=5_d2=11_deep_att19.4",
    "p": 0.001,
    "d_req": 11,
-   "eps_T": 0.00017225611119272357,
+   "eps_T": 0.00017225874501809317,
    "volume_per_T": 8454.847295101063,
    "estimate": false,
    "scaled": false,
@@ -4759,13 +4249,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p1e3_5e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 0.00017225611119272357,
+   "eps_T_stage": 0.00017225874501809317,
+   "eps_T_scale": 0.0008254270235596117
   },
   {
    "name": "cult_d1=5_d2=11_deep_att5.1",
    "p": 0.0005,
    "d_req": 11,
-   "eps_T": 2.0574735589829397e-08,
+   "eps_T": 2.085935213993574e-08,
    "volume_per_T": 4930.586923404134,
    "estimate": false,
    "scaled": false,
@@ -4774,13 +4267,16 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p5e4_2e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p5e4_2e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 2.0574735589829397e-08,
+   "eps_T_stage": 2.085935213993574e-08,
+   "eps_T_scale": 3.7062723183085186e-07
   },
   {
    "name": "cult_d1=5_d2=11_deep_att4.6",
    "p": 0.0005,
    "d_req": 11,
-   "eps_T": 6.428262934265377e-08,
+   "eps_T": 6.456724589276011e-08,
    "volume_per_T": 4401.390936889754,
    "estimate": false,
    "scaled": false,
@@ -4789,14 +4285,208 @@
    "d1": 5,
    "d2": 11,
    "q": 255,
-   "source": "deep-tail rerun cultiv_d5deep_d2_11_p5e4_2e9.json (5e9/2e9 shots), errors x2 (S->T)"
+   "source": "deep-tail rerun cultiv_d5deep_d2_11_p5e4_2e9.json (5e9/2e9 shots), errors x2 (S->T)",
+   "eps_T_proxy": 6.428262934265377e-08,
+   "eps_T_stage": 6.456724589276011e-08,
+   "eps_T_scale": 1.1579683667893013e-06
   }
  ],
+ "pL_table": {
+  "0.0005": {
+   "measured": {
+    "3": 0.0011593333333333334,
+    "5": 6.773226773226773e-05,
+    "7": 3.2999999999999997e-06,
+    "9": 1.3137254901960783e-07
+   },
+   "rel_err": {
+    "3": 0.04000374636776951,
+    "5": 0.04062792728177758,
+    "7": 0.10050378152592122,
+    "9": 0.07053456158585983
+   },
+   "errors": {
+    "3": 630,
+    "5": 606,
+    "7": 99,
+    "9": 201,
+    "11": 18
+   },
+   "shots": {
+    "3": 1100000,
+    "5": 17900000,
+    "7": 60000000,
+    "9": 3060000000,
+    "11": 8060000000
+   },
+   "unmeasured": {
+    "11": {
+     "errors": 18,
+     "pL": 4.466501240694789e-09
+    }
+   },
+   "A": 0.7816400650249007,
+   "x": 0.04435633591509534,
+   "Lambda": 22.54469354534039,
+   "fit_distances": [
+    5,
+    7,
+    9
+   ]
+  },
+  "0.001": {
+   "measured": {
+    "3": 0.003515,
+    "5": 0.0004591208791208791,
+    "7": 4.350694082037366e-05,
+    "9": 3.633333333333333e-06,
+    "11": 2.5786261930840245e-07,
+    "13": 2.0499999999999998e-08
+   },
+   "rel_err": {
+    "3": 0.0377157143202357,
+    "5": 0.0402209548158614,
+    "7": 0.04077846884249631,
+    "9": 0.09578262852211515,
+    "11": 0.06972227325861882,
+    "13": 0.15617376188860607
+   },
+   "errors": {
+    "3": 703,
+    "5": 619,
+    "7": 602,
+    "9": 109,
+    "11": 206,
+    "13": 41
+   },
+   "shots": {
+    "3": 400000,
+    "5": 2700000,
+    "7": 27700000,
+    "9": 60000000,
+    "11": 1600000000,
+    "13": 4000000000
+   },
+   "unmeasured": {},
+   "A": 1.616343097652014,
+   "x": 0.07390053851528094,
+   "Lambda": 13.531701122762763,
+   "fit_distances": [
+    9,
+    11,
+    13
+   ]
+  },
+  "0.002": {
+   "measured": {
+    "3": 0.0124,
+    "5": 0.003055,
+    "7": 0.00068,
+    "9": 0.00013884057971014492,
+    "11": 2.143934488668825e-05
+   },
+   "rel_err": {
+    "3": 0.028398091712353243,
+    "5": 0.04045566970313674,
+    "7": 0.040422604172722164,
+    "9": 0.04053066488242188,
+    "11": 0.040841453990377516
+   },
+   "errors": {
+    "3": 1240,
+    "5": 611,
+    "7": 612,
+    "9": 610,
+    "11": 601
+   },
+   "shots": {
+    "3": 200000,
+    "5": 400000,
+    "7": 1800000,
+    "9": 8800000,
+    "11": 56200000
+   },
+   "unmeasured": {},
+   "A": 0.7152878833585427,
+   "x": 0.17763779152494075,
+   "Lambda": 5.629432742973489,
+   "fit_distances": [
+    7,
+    9,
+    11
+   ]
+  },
+  "0.003": {
+   "measured": {
+    "3": 0.02432,
+    "5": 0.01037,
+    "7": 0.003585,
+    "9": 0.00117,
+    "11": 0.00031597368421052634
+   },
+   "rel_err": {
+    "3": 0.020277677641345318,
+    "5": 0.031053504702226842,
+    "7": 0.03734568434866355,
+    "9": 0.03774256780481986,
+    "11": 0.040304398515783116
+   },
+   "errors": {
+    "3": 2432,
+    "5": 1037,
+    "7": 717,
+    "9": 702,
+    "11": 616
+   },
+   "shots": {
+    "3": 200000,
+    "5": 200000,
+    "7": 400000,
+    "9": 1200000,
+    "11": 3900000
+   },
+   "unmeasured": {},
+   "A": 0.4709871182228107,
+   "x": 0.2976182770190477,
+   "Lambda": 3.3600086997882848,
+   "fit_distances": [
+    7,
+    9,
+    11
+   ]
+  }
+ },
  "unified_clock": true,
  "kappa": 1.0,
  "consumption": true,
  "parallelism": null,
  "bias_r": 0.001,
  "kappa_mode": "fixed",
- "growth_rounds": 0
+ "growth_rounds": 0,
+ "proxy_correction": {
+  "d3_0.001": {
+   "T_stage": 8.982790954283576e-07,
+   "proxy_stage": 3.423e-07,
+   "add": 2.1367909542835763e-07,
+   "ratio": 1.312122546637975
+  },
+  "d3_0.0005": {
+   "T_stage": 1.640659386156274e-07,
+   "proxy_stage": 4e-08,
+   "add": 8.40659386156274e-08,
+   "ratio": 2.0508242326953425
+  },
+  "d5_0.001": {
+   "T_stage": 3.3284253696116496e-09,
+   "proxy_stage": 3.473e-10,
+   "add": 2.6338253696116495e-09,
+   "ratio": 4.791859155789878
+  },
+  "d5_0.0005": {
+   "T_stage": 2.846165501063441e-10,
+   "proxy_stage": null,
+   "add": 2.846165501063441e-10,
+   "ratio": 18.01370570293317
+  }
+ }
 }

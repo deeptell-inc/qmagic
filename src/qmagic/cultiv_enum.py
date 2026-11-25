@@ -1,8 +1,8 @@
-"""Exact low-weight enumeration of the d1=3 (or d1=5) inject+cultivate stage (Gidney's ErrorEnumerationReport, external repo):
-all sets of up to `max_weight` error mechanisms of the detector error model that trigger no detector (full post-selection)
-and flip the logical observable, with their exact probabilities. Gives the error floor of the cultivation stage with zero
-statistical error, per weight, and the acceptance rate.  Needs external/ (python -m qmagic.make_circuits is not needed:
-circuits are built directly).  Errors are doubled (S -> T convention of the sampled data).
+"""Low-weight enumeration of undetected logical error sets of the inject+cultivate stage in the S-GATE PROXY circuit
+(Gidney's ErrorEnumerationReport, external repo). The result is the proxy error of the stage, truncated at `max_weight`:
+converged for d1=3 at weight 5; leading order only for d1=5. It is NOT the error of the circuit with actual T gates, which has
+lower fault distance (2 and 3) and is given exactly by Wan & Zapirain, arXiv:2609.18922 (data/wan_zapirain_2026.json).
+Kept as a cross-check of the published proxy statistics (d1=3: 3.42e-7 at p=1e-3). "floor_T" in the output is 2x the proxy value.
     python -m qmagic.cultiv_enum [max_weight=5] [d1=3] -> results/cultiv_enum_d<d1>.json   (d1=5, weight 5: 2797 mechanisms, ~45 min)
 """
 from qmagic.paths import RESULTS, find

@@ -32,4 +32,4 @@ if __name__ == "__main__":
     for r_mis in (0.0, 0.05, 0.1, 0.2, -0.2):
         r = run(2000, 2.5e-4, 2.5e-4, r_mis); rec["b"].append(r)
         print(f"  r={r_mis:+.2f}: mean={r['mean']:+.5f} ideal={r['ideal']:+.5f} bias={r['bias']:+.5f}  Sigma*r*ideal={r['rule_sigma_r']:+.5f}")
-    rec["seconds"] = time.time() - t0; json.dump(rec, open(RESULTS / "pec_exact.json", "w"), indent=1); print(f"elapsed {rec['seconds']:.2f} s")
+    json.dump(rec, open(RESULTS / "pec_exact.json", "w"), indent=1); print(f"elapsed {time.time() - t0:.2f} s")   # timing is printed, not stored: the file must be reproducible

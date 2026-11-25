@@ -1,0 +1,77 @@
+{
+ "_note": "Deep memory calibration (same circuits, noise and decoder as calib_gidney.json; independent seeds; sequential stopping at 100 errors per basis or the shot cap). Produced by python -m qmagic.calib_deep.",
+ "rows": [
+  {
+   "p": 0.001,
+   "d": 11,
+   "basis": "X",
+   "shots": 800000000,
+   "errors": 100,
+   "pL": 1.25e-07,
+   "sec": 17465
+  },
+  {
+   "p": 0.001,
+   "d": 11,
+   "basis": "Z",
+   "shots": 740000000,
+   "errors": 100,
+   "pL": 1.3513513513513515e-07,
+   "sec": 16294
+  },
+  {
+   "p": 0.0005,
+   "d": 9,
+   "basis": "X",
+   "shots": 1500000000,
+   "errors": 94,
+   "pL": 6.266666666666667e-08,
+   "sec": 10917
+  },
+  {
+   "p": 0.0005,
+   "d": 9,
+   "basis": "Z",
+   "shots": 1500000000,
+   "errors": 100,
+   "pL": 6.666666666666667e-08,
+   "sec": 11305
+  },
+  {
+   "p": 0.001,
+   "d": 13,
+   "basis": "X",
+   "shots": 2000000000,
+   "errors": 24,
+   "pL": 1.2e-08,
+   "sec": 81151
+  },
+  {
+   "p": 0.001,
+   "d": 13,
+   "basis": "Z",
+   "shots": 2000000000,
+   "errors": 17,
+   "pL": 8.5e-09,
+   "sec": 80563
+  },
+  {
+   "p": 0.0005,
+   "d": 11,
+   "basis": "X",
+   "shots": 4000000000,
+   "errors": 4,
+   "pL": 1e-09,
+   "sec": 58630
+  },
+  {
+   "p": 0.0005,
+   "d": 11,
+   "basis": "Z",
+   "shots": 4000000000,
+   "errors": 13,
+   "pL": 3.25e-09,
+   "sec": 58188
+  }
+ ]
+}

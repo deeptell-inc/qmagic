@@ -56,7 +56,8 @@ for model, f in fits.items():
                 r = F.simulate(dX, dZ, dm, 1e-3, pL=pL_own, consume=False)
                 dist.append(dict(name=f"15to1_{r['dX']},{r['dZ']},{r['dm']}", p=1e-3, d_req=dX, qubits=r["qubits"], cycles_per_T=round(r["cycles"], 1), eps_T=max(r["p_out"], 1e-16)))
     prm["distill"] = dist
-    prm["cultivate"] = cult_points(model) if model.startswith("biased") else [c for c in v3["cultivate"] if c["p"] == 1e-3 and not c.get("scaled")]
+    # like for like with the biased runs: d1=3, d2=7, doubled S-gate proxy without correction (the exact T-gate stage error is known for uniform noise only)
+    prm["cultivate"] = cult_points(model) if model.startswith("biased") else [dict(c, eps_T=c["eps_T_proxy"]) for c in v3["cultivate"] if c["p"] == 1e-3 and c.get("d1") == 3 and c.get("d2") == 7]
     sw = costmodel.sweep(prm)
     r = dict(fit=f, u=U, dist_floor=min(x["eps_T"] for x in dist if x["d_req"] <= 11), cult_floor=min(x["eps_T"] for x in prm["cultivate"] if x["d_req"] <= 11),
              NmaxA=costmodel.nmax(prm, "distill", 1e-3, 11, 0.3, G), NmaxC=costmodel.nmax(prm, "cultivate", 1e-3, 11, 0.3, G),

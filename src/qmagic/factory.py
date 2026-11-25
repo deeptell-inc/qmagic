@@ -160,8 +160,13 @@ def main_2level():
         r = simulate2(l1, l2, p); ratio = r["p_out"] / pout; worst = max(worst, ratio, 1 / ratio)
         print(f"{l1}x{l2} p={p:g}: p_out {r['p_out']:.2e} (Litinski {pout:.1e}, x{ratio:.2f}) qubits {r['qubits']} ({q}, k={r['k']} vs {k}) cycles {r['cycles']:.1f} ({cyc})")
     print("worst ratio:", round(worst, 2))
-    fit = json.load(open(find("calib_gidney.json")))["fit"]       # v4: same calibration as params_v3; exit-only outputs
-    pL_own = lambda p, d: fit["A"] * (p / fit["p_th"]) ** (fit["exponent_scale"] * (d + 1) / 2) / d
+    try:                                                           # same p_L as the parameter set: measured table (calib_table) when present
+        from qmagic import costmodel as _cm
+        _t = json.load(open(find("pL_table.json"))); _prm = dict(pL_table=_t["table"], pL_fit=dict(A=_t["global_fit"]["A"], p_th=_t["global_fit"]["p_th"], s=_t["global_fit"]["s"]))
+        pL_own = lambda p, d: _cm.pL(_prm, p, d) / d
+    except FileNotFoundError:
+        fit = json.load(open(find("calib_gidney.json")))["fit"]
+        pL_own = lambda p, d: fit["A"] * (p / fit["p_th"]) ** (fit["exponent_scale"] * (d + 1) / 2) / d
     grid = []
     for p in (1e-3, 5e-4):
         best = None

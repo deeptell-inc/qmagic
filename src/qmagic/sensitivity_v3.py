@@ -23,6 +23,11 @@ for u in (1/30, 0.1, 1.0):
     # v4: precision target / calibration error (bias Sigma*bias_r <= N_e on QEM arms; Sigma <= N_e on the others)
     for tag, opts in (("r=1e-2", dict(bias_r=1e-2)), ("Ne=1e-2,r=1e-2", dict(N_e=1e-2, bias_r=1e-2)), ("nobias", dict(bias_r=None))):
         prm = copy.deepcopy(base); prm.update(opts); s, d = sweep(prm, u); out[f"u={u:.3g},{tag}"] = (s, d); print(f"  u={u:.3g} {tag}: saving={s} dQ={d}")
+    # v5: S-proxy correction (pessimistic scaling; uncorrected sampled values) and T-state calibration uncertainty
+    for tag, q in (("proxy=scale", costmodel.with_proxy_mode(base, "scale")), ("proxy=none", costmodel.with_proxy_mode(base, "none"))):
+        s, d = sweep(q, u); out[f"u={u:.3g},{tag}"] = (s, d); print(f"  u={u:.3g} {tag}: saving={s}")
+    for tag, opts in (("rT=0.3", dict(bias_rT=0.3)), ("rT=0.3,Ne=1e-2", dict(bias_rT=0.3, N_e=1e-2, bias_r=1e-2)), ("rT=0.03", dict(bias_rT=0.03))):
+        prm = copy.deepcopy(base); prm.update(opts); s, d = sweep(prm, u); out[f"u={u:.3g},{tag}"] = (s, d); print(f"  u={u:.3g} {tag}: saving={s}")
     # v4: routing-tile error kappa(u) and growth charge for d2 < d
     for tag, opts in (("kappa=route", dict(kappa_mode="route")), ("growth=1", dict(growth_rounds=1)), ("growth=d", dict(growth_rounds="d"))):
         prm = copy.deepcopy(base); prm.update(opts); s, d = sweep(prm, u); out[f"u={u:.3g},{tag}"] = (s, d); print(f"  u={u:.3g} {tag}: saving={s} dQ={d}")

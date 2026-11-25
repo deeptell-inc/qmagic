@@ -9,8 +9,9 @@ def thin(curve, minerr=4):
 g = json.load(open(find("gidney2024_fig1_points.json")))
 fig, ax = plt.subplots(1, 2, figsize=(11, 4.2))
 for i, p in enumerate((1e-3, 5e-4)):
-    import glob
-    src = [r for r in json.load(open(find("cultiv_d2scan_d3_5e7.json"))) if r["meta"]["p"] == 1e-3] + json.load(open(find("cultiv_d2scan_d3_p5e4_3e8.json"))) + json.load(open(find("cultiv_validate_d15_2e7.json"))) + json.load(open(find("cultiv_d2scan_d5_5e8.json")))
+    # d1=3: d2 = 7, 9, 11 and the d2=15 validation run; d1=5: the deep d2=11 runs (shallower d1=5 runs do not resolve the low-error part)
+    src = ([r for r in json.load(open(find("cultiv_d2scan_d3_5e7.json"))) if r["meta"]["p"] == 1e-3] + json.load(open(find("cultiv_d2scan_d3_p5e4_3e8.json")))
+           + json.load(open(find("cultiv_validate_d15_2e7.json"))) + json.load(open(find("cultiv_d5deep_d2_11_p1e3_5e9.json"))) + json.load(open(find("cultiv_d5deep_d2_11_p5e4_2e9.json"))))
     for r in src:
         if r["meta"]["p"] != p: continue
         t = thin(r["curve"]); ax[i].loglog([x["v"] for x in t], [x["err"] for x in t], "o-", label=f"this work, $d_1={r['meta']['d1']}$, $d_2={r['meta']['d2']}$ ($q={r['q']}$)")

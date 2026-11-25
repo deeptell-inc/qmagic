@@ -56,5 +56,6 @@
    "9": 2.576080119888057e-07,
    "11": 3.234196060522805e-07
   }
- }
+ },
+ "_note": "S-gate proxy circuit, truncated enumeration; floor_T = 2 x proxy. Not the T-gate error (see wan_zapirain_2026.json)."
 }

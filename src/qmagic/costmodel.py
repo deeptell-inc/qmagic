@@ -19,7 +19,24 @@ from qmagic.paths import DATA, RESULTS, EXTERNAL, find
 import json, math, sys, csv
 
 def pL(prm, p, d):
+    """Logical error per patch per d rounds. Measured table value where one exists (prm["pL_table"], built by calib_table),
+    otherwise the per-p fit A x^{(d+1)/2} of that table (extrapolation), otherwise the global fit A (p/p_th)^{s(d+1)/2}."""
+    row = (prm.get("pL_table") or {}).get(f"{p:g}")
+    if row:
+        v = row["measured"].get(str(d))
+        return v if v is not None else row["A"] * row["x"] ** ((d + 1) / 2)
     f = prm["pL_fit"]; return f["A"] * (p / f["p_th"]) ** (f["s"] * (d + 1) / 2)
+
+def with_proxy_mode(prm, mode):
+    """Copy of prm with the cultivation errors taken as: 'stage' (default: sampled S-proxy value plus the exact T-gate minus proxy
+    difference of the cultivation stage), 'scale' (whole sampled value multiplied by the stage T/proxy ratio: pessimistic),
+    or 'none' (sampled S-proxy x2 value as published)."""
+    import copy
+    key = {"stage": "eps_T_stage", "scale": "eps_T_scale", "none": "eps_T_proxy"}[mode]
+    q = copy.deepcopy(prm)
+    for s in q["cultivate"]:
+        if key in s: s["eps_T"] = s[key]
+    return q
 
 def source_cost(s, d, t_rate=1.0):
     """t_rate = T gates consumed per d cycles (Litinski default 1). Factories scale with t_rate."""
@@ -35,6 +52,7 @@ def arm(prm, kind, qem, p, d_max, N, f_T, C_max, cap_d=True, objective="Q"):
     cons = prm.get("consumption", None)    # panel fix 2: symmetric consumption channel 0.75*p_L(d) on BOTH arms (sources must then be 'no-cons' outputs)
     bias_r = prm.get("bias_r", None)       # v4: relative calibration error of logical rates -> residual bias Sigma*bias_r must stay <= N_e
     growth = prm.get("growth_rounds", 0)   # v4: idle rounds at d2 before growth to d (cultivation rows with d_req < d only)
+    rT = prm.get("bias_rT", None)          # v5: relative uncertainty of the T-state error; mitigated arms then need N_T*eps_T*rT <= N_e
     if par is not None and prm.get("kappa_mode") == "route": kappa = 1.0 + (r - 1.0) * par / n_L
     N_T, N_C = N * f_T, N * (1 - f_T)
     best = None
@@ -51,6 +69,7 @@ def arm(prm, kind, qem, p, d_max, N, f_T, C_max, cap_d=True, objective="Q"):
             if qem:
                 if 4 * eps_tot > math.log(C_max): continue
                 if bias_r is not None and eps_tot * bias_r > N_e: continue        # v4: residual bias at the common precision target
+                if rT is not None and N_T * eps_T * rT > N_e: continue            # v5: bias from the uncertainty of the T-state error
                 G = math.exp(4 * eps_tot)
             else:
                 if eps_tot > N_e: continue
@@ -67,11 +86,17 @@ def arm(prm, kind, qem, p, d_max, N, f_T, C_max, cap_d=True, objective="Q"):
 ARMS = [("B0", "distill", False), ("A", "distill", True), ("B", "cultivate", False), ("C", "cultivate", True)]
 
 def nmax(prm, kind, p, d_max, f_T, G=100.0, qem=True):
-    """Largest circuit size N for which the arm is feasible: budget / min_(d, source) [per-op data error + f_T * eps_T].
-    QEM budget = min(ln G / 4, N_e / bias_r); no-QEM budget = N_e. Same idle/kappa/consumption/growth rules as arm()."""
+    """Largest circuit size N for which the arm is feasible: max over (d, source) of
+    min( budget / [per-op data error + f_T eps_T],  N_e / (rT f_T eps_T) ), with budget = min(ln G/4, N_e/bias_r) for the mitigated
+    arms and N_e otherwise; the second term (T-state calibration, bias_rT) applies to mitigated arms only.
+    Same idle/kappa/consumption/growth rules as arm()."""
     par, kap, n_L, r = prm.get("parallelism"), prm.get("kappa", 1.0), prm["n_L"], prm["r_route"]; best = None
     if par is not None and prm.get("kappa_mode") == "route": kap = 1.0 + (r - 1.0) * par / n_L
-    growth = prm.get("growth_rounds", 0); cons = prm.get("consumption", None)
+    growth = prm.get("growth_rounds", 0); cons = prm.get("consumption", None); rT = prm.get("bias_rT", None)
+    budget = prm["N_e"]
+    if qem:
+        budget = math.log(G) / 4
+        if prm.get("bias_r") is not None: budget = min(budget, prm["N_e"] / prm["bias_r"])
     for d in range(3, d_max + 1, 2):
         for s in prm[kind]:
             if s["p"] != p or s["d_req"] > d_max: continue
@@ -79,12 +104,10 @@ def nmax(prm, kind, p, d_max, f_T, G=100.0, qem=True):
             if growth and "volume_per_T" in s and s["d_req"] < d:
                 d2 = s["d_req"]; eps_T += (d if growth == "d" else growth) * pL(prm, p, d2) / d2
             per_op = pL(prm, p, d) * (1 if par is None else kap * n_L / par)
-            rt = per_op + f_T * eps_T; best = rt if best is None or rt < best else best
-    if best is None: return float("nan")
-    if not qem: return prm["N_e"] / best
-    budget = math.log(G) / 4
-    if prm.get("bias_r") is not None: budget = min(budget, prm["N_e"] / prm["bias_r"])
-    return budget / best
+            n = budget / (per_op + f_T * eps_T)
+            if qem and rT is not None: n = min(n, prm["N_e"] / (rT * f_T * eps_T))
+            best = n if best is None or n > best else best
+    return best if best is not None else float("nan")
 
 def sweep(prm, objective="Q"):
     rows = []

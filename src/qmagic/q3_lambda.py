@@ -12,11 +12,12 @@ pL_own = lambda p, d: fit["A"] * (p / fit["p_th"]) ** (fit["s"] * (d + 1) / 2) /
 # p_L per d rounds, so Λ_block(d->d+2) = Λ_cycle * d/(d+2)  (panel fix 6). For the 3->5 pair: x 3/5.
 # v4: Google Willow (surface code, d=3/5/7, Lambda_cycle = 2.14 +- 0.02) added; its 5->7 block conversion is x5/7. The numerical
 # coincidence with Bluvstein's 2.14(13) is accidental (different platform, code and circuit).
-LAMBDAS_CYCLE = {"Lacroix2025_SC_colour_code": (1.56, 3), "Bluvstein2026_neutral_atoms": (2.14, 3), "GoogleWillow2025_surface_code": (2.14, 5)}
+LAMBDAS_CYCLE = {"Lacroix2025_SC_colour_code": (1.56, 3), "Bluvstein2026_neutral_atoms": (2.14, 3), "GoogleWillow2025_surface_code": (2.14, 5),
+                 "Lavasani2026_ion_colour_code": (12.0, 5)}      # Quantinuum Helios, triangular colour code d=3,5,7, Lambda = 12 (+3/-2) per cycle
 LAMBDAS = {k: v * d / (d + 2) for k, (v, d) in LAMBDAS_CYCLE.items()}          # block-basis values: 0.94, 1.28, 1.53
 p_effs = {k: fit["p_th"] / lam ** (1 / fit["s"]) for k, lam in LAMBDAS.items()}
 print("Λ (per-cycle -> per-d-rounds block, 3->5):", {k: round(v, 3) for k, v in LAMBDAS.items()})
-p_list = [2e-3] + sorted(p_effs.values())
+p_list = sorted(set([2e-3] + list(p_effs.values())))
 prm = dict(base); prm["p"] = p_list; prm["d_max"] = [11, 13, 15]; prm["N"] = [1e3, 1e4]; prm["f_T"] = [0.3]; prm["C_max"] = [100.0]
 prm["parallelism"] = prm["n_L"]            # u = 1: the most optimistic (idle-free) clock; serial machines are worse
 # distillation at each p: full (dZ, dm) grid per dX <= 15, exit-only p_out (v4 conventions). Factory rows whose density-matrix
@@ -50,6 +51,8 @@ for p in p_list:
             rec[f"Nmax_{a}"] = costmodel.nmax(prm, kind, p, d_max, 0.3, G_max, qem=qem)
         out.append(rec)
         print(f"{p:8.2e} {lam:5.2f} {d_max:4d} | {rec['N_data']:8.1e} {rec['Nmax_B0']:8.1e} {rec['Nmax_A']:8.1e} {rec['Nmax_B']:8.1e} {rec['Nmax_C']:8.1e}")
+name_of = {round(v, 12): k for k, v in p_effs.items()}
+for rec in out: rec["source"] = name_of.get(round(rec["p"], 12), "reference p=2e-3")
 with open(RESULTS / "q3_nmax.csv", "w", newline="") as f:
     w = csv.DictWriter(f, fieldnames=list(out[0].keys())); w.writeheader(); w.writerows(out)
 print("\n4-arm sweep at N=1e3/1e4, fT=0.3, Gmax=100:")

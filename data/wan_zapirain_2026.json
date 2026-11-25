@@ -1,0 +1,61 @@
+{
+ "source": "K. H. Wan and A. Zapirain, Exact logical error rates for magic state cultivation, arXiv:2609.18922v3 (2026). Actual T gates, inject[unitary]+cultivate circuits of Gidney-Shutty-Jones (via SOFT/Clifft), uniform circuit-level depolarizing noise, full post-selection, escape stage not included. P_L(x) = sum_k L_k x^k with x = p/(1-p).",
+ "d3": {
+  "fault_distance": 2,
+  "series": {
+   "2": "32/75",
+   "3": "2009039/4500",
+   "4": "1183791011/54000",
+   "5": "5576522343343/6075000",
+   "6": "7072572702107929/243000000",
+   "7": "3056416241583144971/3645000000",
+   "8": "14000422301261560415557/656100000000",
+   "9": "352460798986209480998423/820125000000",
+   "10": "2800398004859242449492508511/590490000000000"
+  },
+  "exact": {
+   "0.001": 8.982790954e-07
+  }
+ },
+ "d5": {
+  "fault_distance": 3,
+  "series": {
+   "3": "574/375",
+   "4": "972959741/810000",
+   "5": "2678166036893/4860000",
+   "6": "46204605652071071/1458000000",
+   "7": "20165667601860828941/14580000000",
+   "8": "34708968532201339967/656100000",
+   "9": "12146976079587122943200741/6561000000000",
+   "10": "28153927149162391481472671659/472392000000000"
+  },
+  "exact": {
+   "0.0005": 2.846165501072e-10,
+   "0.00075": 1.165527889094e-09,
+   "0.001": 3.328425371418e-09,
+   "0.0015": 1.59126680653e-08,
+   "0.002": 5.175102366142e-08
+  },
+  "acceptance": {
+   "0.0005": 0.379184137167,
+   "0.00075": 0.233599896243,
+   "0.001": 0.143955584096,
+   "0.0015": 0.0547199749366,
+   "0.002": 0.0208263641922
+  }
+ },
+ "proxy_stage": {
+  "_note": "S-gate proxy logical error of the same circuits per accepted shot, from the published statistics of Gidney et al. (data/gidney2024_stats.csv, perfectionist decoder): errors/kept. d5 at p=5e-4: 0 errors in 3.79e11 kept shots (95% upper limit 7.9e-12).",
+  "d3": {
+   "0.001": 3.423e-07,
+   "0.0005": 4e-08
+  },
+  "d5": {
+   "0.001": 3.473e-10,
+   "0.0005": null
+  },
+  "d5_upper95": {
+   "0.0005": 7.9e-12
+  }
+ }
+}

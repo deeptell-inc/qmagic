@@ -33,6 +33,7 @@ def main():
     for ref in sorted(REF.iterdir()):
         if ref.suffix not in (".json", ".csv"): continue
         out = RESULTS / ref.name
+        if not out.exists(): out = RESULTS / "paper" / ref.name          # manuscript numbers live in results/paper/
         if not out.exists(): print(f"MISSING  {ref.name}"); bad += 1; continue
         tol = TOL.get(ref.name, rtol)
         if ref.suffix == ".json": msgs = diff(json.load(open(ref)), json.load(open(out)), tol)

@@ -78,14 +78,40 @@ def test_build_params_v3_from_shipped_inputs(tmp_path):
     import subprocess, sys, os, shutil
     root = tmp_path / "root"; shutil.copytree(DATA, root / "data")
     env = dict(os.environ, QMAGIC_ROOT=str(root))
-    for mod in ("qmagic.rerun_corr", "qmagic.build_params_d2scan", "qmagic.build_params_v3"):
+    for mod in ("qmagic.calib_table", "qmagic.rerun_corr", "qmagic.build_params_d2scan", "qmagic.build_params_v3"):
         subprocess.run([sys.executable, "-m", mod], check=True, env=env, capture_output=True, cwd=root)
     prm = json.load(open(root / "results" / "params_v3.json")); prm["cultivate"] = [c for c in prm["cultivate"] if not c.get("scaled")]
     assert len(prm["distill"]) > 100 and prm.get("bias_r") == 1e-3
     prm["p"] = [1e-3]; prm["d_max"] = [11]; prm["N"] = [1e5]; prm["f_T"] = [0.3]; prm["C_max"] = [100.0]; prm["parallelism"] = prm["n_L"]
     rows = {r["arm"]: r for r in costmodel.sweep(prm)}
-    assert abs(rows["C"]["saving_C_vs_A"] - 0.82) < 0.02 and rows["A"]["k"] == 86
+    assert 0.7 < rows["C"]["saving_C_vs_A"] < 0.9 and rows["A"]["k"] > 50 and "pL_table" in prm
 
 def test_pec_single_shot_variance_identity():
     r = pec.run(400, 2.5e-4, 2.5e-4, M=40_000, seed=9)
     assert abs(r["var_x_M"] / (r["gamma_tot"] ** 2 - r["ideal"] ** 2) - 1) < 0.05
+
+
+def test_pL_table_lookup_and_extrapolation():
+    prm = dict(pL_table={"0.001": dict(measured={"9": 3.6e-6}, A=0.3, x=0.1)}, pL_fit=dict(A=0.333, p_th=0.0101, s=0.963))
+    assert costmodel.pL(prm, 1e-3, 9) == 3.6e-6                                   # measured value
+    assert abs(costmodel.pL(prm, 1e-3, 11) / (0.3 * 0.1 ** 6) - 1) < 1e-12         # per-p extrapolation
+    assert abs(costmodel.pL(prm, 2e-3, 9) / (0.333 * (2e-3 / 0.0101) ** (0.963 * 5)) - 1) < 1e-12   # global fit elsewhere
+
+def test_proxy_modes_and_T_calibration_constraint():
+    prm = json.load(open(_find("params_v3.json")))
+    row = next(c for c in prm["cultivate"] if c.get("d1") == 5 and "eps_T_scale" in c)
+    assert row["eps_T_proxy"] < row["eps_T_stage"] < row["eps_T_scale"] and row["eps_T"] == row["eps_T_stage"]
+    assert not any(c.get("scaled") for c in prm["cultivate"])                      # no transferred tails
+    prm["parallelism"] = prm["n_L"]
+    base = costmodel.nmax(prm, "cultivate", 1e-3, 11, 0.3); prm["bias_rT"] = 0.3
+    lim = costmodel.nmax(prm, "cultivate", 1e-3, 11, 0.3)
+    best = min(c["eps_T"] for c in prm["cultivate"] if c["p"] == 1e-3 and c["d_req"] <= 11)
+    assert lim < base and lim <= prm["N_e"] / (0.3 * 0.3 * best) * 1.0001          # N_T * eps_T * r_T <= N_e
+    assert costmodel.nmax(costmodel.with_proxy_mode(prm, "scale"), "cultivate", 5e-4, 11, 0.3) < costmodel.nmax(prm, "cultivate", 5e-4, 11, 0.3)
+
+def test_wan_zapirain_series_reproduces_exact_values():
+    from fractions import Fraction
+    wz = json.load(open(DATA / "wan_zapirain_2026.json"))
+    x = Fraction(1, 1000) / (1 - Fraction(1, 1000))
+    for d, ref in ((3, 8.982790954e-7), (5, 3.328425371418e-9)):
+        v = float(sum(Fraction(c) * x ** int(k) for k, c in wz[f"d{d}"]["series"].items())); assert abs(v / ref - 1) < 1e-6

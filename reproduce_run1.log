@@ -1,7 +1,14 @@
-data: /Users/deeptell01/Documents/alterego/personal/qmagic-repro/data
-results: /Users/deeptell01/Documents/alterego/personal/qmagic-repro/results
+data: ./data
+results: ./results
+== measured p_L table (data-block calibration)
+--- qmagic.calib_table (0s, exit 0)
+global fit: A=0.459±0.020 p_th=0.01040±0.00012 s=1.002±0.006 over 20 points, max ratio 1.65
+p=0.0005: measured d=3: 1.159e-03 (n=630, ±4%), d=5: 6.773e-05 (n=606, ±4%), d=7: 3.300e-06 (n=99, ±10%), d=9: 1.314e-07 (n=201, ±7%) | extrapolation from d=[5, 7, 9]: Lambda=22.54 | d=11 below threshold: 18 errors
+p=0.001: measured d=3: 3.515e-03 (n=703, ±4%), d=5: 4.591e-04 (n=619, ±4%), d=7: 4.351e-05 (n=602, ±4%), d=9: 3.633e-06 (n=109, ±10%), d=11: 2.579e-07 (n=206, ±7%), d=13: 2.050e-08 (n=41, ±16%) | extrapolation from d=[9, 11, 13]: Lambda=13.53
+p=0.002: measured d=3: 1.240e-02 (n=1240, ±3%), d=5: 3.055e-03 (n=611, ±4%), d=7: 6.800e-04 (n=612, ±4%), d=9: 1.388e-04 (n=610, ±4%), d=11: 2.144e-05 (n=601, ±4%) | extrapolation from d=[7, 9, 11]: Lambda=5.63
+p=0.003: measured d=3: 2.432e-02 (n=2432, ±2%), d=5: 1.037e-02 (n=1037, ±3%), d=7: 3.585e-03 (n=717, ±4%), d=9: 1.170e-03 (n=702, ±4%), d=11: 3.160e-04 (n=616, ±4%) | extrapolation from d=[7, 9, 11]: Lambda=3.36
 == factory reconstruction + two-level validation
---- qmagic.factory (1s, exit 0)
+--- qmagic.factory (0s, exit 0)
 -08 (Litinski 4.5e-08, x1.11)  qubits 4618 (4620)  cycles 42.7 (42.6)  p_fail 0.016
 worst p_out ratio vs Table 1: 1.18
 (0.001, 'litinski') best 3 by p_out: [(11, 5, 5, '8.3e-06', 2066, 31.4), (11, 7, 5, '9.2e-06', 2594, 31.2), (11, 5, 7, '1.0e-05', 2074, 43.3)]
@@ -12,10 +19,10 @@ worst p_out ratio vs Table 1: 1.18
 (13, 5, 5)x(29, 11, 13) p=0.001: p_out 2.13e-14 (Litinski 3.3e-14, x0.65) qubits 30912 (39100, k=7 vs 6) cycles 78.0 (97.5)
 (17, 7, 7)x(41, 17, 17) p=0.001: p_out -2.22e-16 (Litinski 4.5e-20, x-4934.32) qubits 59208 (73400, k=7 vs 6) cycles 102.0 (128)
 worst ratio: 1.61
-p=0.001: best 2-level d<=11: (11, 5, 5)x(11, 5, 5) p_out=3.29e-06 (level-1 4.1e-06) qubits=35122 cycles=31 | best 1-level d<=11: p_out=3.67e-06 qubits=2066 | ratio 2-level/1-level p_out=0.89, qubits x17.0
-p=0.0005: best 2-level d<=11: (11, 5, 5)x(11, 5, 5) p_out=5.53e-08 (level-1 6.9e-08) qubits=35122 cycles=30 | best 1-level d<=11: p_out=6.23e-08 qubits=2066 | ratio 2-level/1-level p_out=0.89, qubits x17.0
+p=0.001: best 2-level d<=11: (11, 5, 5)x(11, 5, 5) p_out=1.90e-06 (level-1 2.6e-06) qubits=35122 cycles=31 | best 1-level d<=11: p_out=2.29e-06 qubits=2074 | ratio 2-level/1-level p_out=0.83, qubits x16.9
+p=0.0005: best 2-level d<=11: (11, 5, 5)x(11, 5, 5) p_out=3.61e-08 (level-1 5.0e-08) qubits=35122 cycles=30 | best 1-level d<=11: p_out=4.51e-08 qubits=2066 | ratio 2-level/1-level p_out=0.80, qubits x17.0
 == correlated-matching parameter set (params_corr.json)
---- qmagic.rerun_corr (1s, exit 0)
+--- qmagic.rerun_corr (0s, exit 0)
  N=1e+05: d=7 Q=23345 (fac 707) Γ=75.9  save=+0.24 dQ=+0.062
   A p=0.001 N=1e+06: d=9 Q=45686 (fac 8264) Γ=43.9
   C p=0.001 N=1e+06: d=9 Q=39052 (fac 1630) Γ=53.5  save=+0.15 dQ=+0.023
@@ -46,116 +53,119 @@ Q5 N_max with correlated pL (fT=0.3):
 Λ=2.14 (Bluvstein): p_eff uncorr=3.43e-03  corr=5.49e-03
 Λ=3.7 (regime-opening (was p=2e-3)): p_eff uncorr=1.98e-03  corr=3.12e-03
 == d2-scan parameter set (params_corr_d2.json)
---- qmagic.build_params_d2scan (0s, exit 1)
-
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/build_params_d2scan.py", line 18, in <module>
-    runs = [r for r in load("cultiv_d2scan_d3_5e7.json") if r["meta"]["p"] == 1e-3] + load("cultiv_d2scan_d3_p5e4_3e8.json") + load("cultiv_d2scan_d5_5e8.json")
-                       ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/build_params_d2scan.py", line 16, in load
-    def load(f): return json.load(open(f))
-                                  ~~~~^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'cultiv_d2scan_d3_5e7.json'
-
-== v3/v4 parameter set (full factory grid, physical d_req, bias constraint)
---- qmagic.build_params_v3 (0s, exit 1)
-
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/build_params_v3.py", line 10, in <module>
-    base = json.load(open(find("params_corr_d2.json")))
-                          ~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/paths.py", line 11, in find
-    raise FileNotFoundError(f"{name} not found in {RESULTS}, {DATA} or cwd")
-FileNotFoundError: params_corr_d2.json not found in /Users/deeptell01/Documents/alterego/personal/qmagic-repro/results, /Users/deeptell01/Documents/alterego/personal/qmagic-repro/data or cwd
-
-== per-p calibration fits (claim (a) sensitivity)
---- qmagic.calib_perp (10s, exit 0)
-p=0.0005: per-p fit A=0.302 x=0.0595 (Lambda=16.81); p_L(11) per-p 1.34e-08 vs global 9.32e-09; d_X<=11 floor per-p 8.79e-08 vs global 6.23e-08
-    d=9: observed 7 errors, expected per-p 6.8, global 5.1
-    d=11: observed 1 errors, expected per-p 0.4, global 0.3
-p=0.001: per-p fit A=0.341 x=0.1063 (Lambda=9.41); p_L(11) per-p 4.92e-07 vs global 5.12e-07; d_X<=11 floor per-p 3.54e-06 vs global 3.67e-06
-    d=9: observed 109 errors, expected per-p 138.8, global 143.0
-    d=11: observed 6 errors, expected per-p 14.8, global 15.4
-p=0.002: per-p fit A=0.318 x=0.2059 (Lambda=4.86); p_L(11) per-p 2.42e-05 vs global 2.82e-05
-    d=9: observed 610 errors, expected per-p 541.5, global 618.4
-    d=11: observed 601 errors, expected per-p 715.1, global 831.0
-p=0.003: per-p fit A=0.217 x=0.3457 (Lambda=2.89); p_L(11) per-p 3.71e-04 vs global 2.94e-04
-    d=9: observed 702 errors, expected per-p 644.1, global 568.8
-    d=11: observed 616 errors, expected per-p 742.1, global 587.2
-== claims (b)/(c) + sensitivity variants (kappa(u), growth)
---- qmagic.claims_v3 (0s, exit 1)
-
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/claims_v3.py", line 9, in <module>
-    prm0 = json.load(open(find("params_v3.json"))); G = 100.0
-                          ~~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/paths.py", line 11, in find
-    raise FileNotFoundError(f"{name} not found in {RESULTS}, {DATA} or cwd")
-FileNotFoundError: params_v3.json not found in /Users/deeptell01/Documents/alterego/personal/qmagic-repro/results, /Users/deeptell01/Documents/alterego/personal/qmagic-repro/data or cwd
-
+--- qmagic.build_params_d2scan (0s, exit 0)
+p=0.001: Gidney d1=5 baseline(15)=645; ours d2=11: 436 (0.68), d2=13: 533 (0.83)
+p=0.0005: Gidney d1=5 baseline(15)=1546; ours d2=11: 959 (0.62), d2=13: 1230 (0.80)
+25 Gidney d1=5 rows; 50 scaled d1=5 rows; 48 our measured rows
+== parameter set: full factory grid, physical d_req, T-gate correction of cultivation
+--- qmagic.build_params_v3 (1s, exit 0)
+p=0.001: exit-only distillation floor per dX: 5: 4.2e-03, 7: 4.1e-04, 9: 2.9e-05, 11: 2.3e-06, 13: 1.8e-07, 15: 2.4e-08, 17: 1.2e-08, 19: 1.1e-08, 21: 1.1e-08, 23: 1.1e-08, 25: 1.1e-08
+p=0.0005: exit-only distillation floor per dX: 5: 6.1e-04, 7: 2.7e-05, 9: 1.1e-06, 11: 4.5e-08, 13: 3.5e-09, 15: 1.4e-09, 17: 1.3e-09, 19: 1.3e-09, 21: 1.3e-09, 23: 1.3e-09, 25: 1.3e-09
+d1=3 p=0.001: exact T stage 8.983e-07, proxy stage 3.423e-07, stage correction +2.14e-07, scale factor x1.31
+d1=3 p=0.0005: exact T stage 1.641e-07, proxy stage 4e-08, stage correction +8.41e-08, scale factor x2.05
+d1=5 p=0.001: exact T stage 3.328e-09, proxy stage 3.473e-10, stage correction +2.63e-09, scale factor x4.79
+d1=5 p=0.0005: exact T stage 2.846e-10, proxy stage None, stage correction +2.85e-10, scale factor x18.01
+314 distillation rows; 83 cultivation rows
+== claims: savings, N_max ratios, proxy/routing/growth/T-calibration variants
+--- qmagic.claims_v3 (3s, exit 0)
+.8e+06, C 4.6e+06), 0.0005_11: 1.19 (A 1.3e+07, C 1.6e+07), 0.0005_13: 0.84 (A 2.7e+08, C 2.2e+08)
+[stage_statLo] u=0.3 (rho=9): saving=(0.288, 0.558) feasible=5/6 | N_max C/A: 0.001_11: 1.74 (A 6.2e+05, C 1.1e+06), 0.001_13: 1.58 (A 7.9e+06, C 1.3e+07), 0.0005_11: 1.51 (A 2.9e+07, C 4.4e+07), 0.0005_13: 0.73 (A 5.1e+08, C 3.7e+08)
+[stage_statLo] u=1 (rho=30): saving=(0.714, 0.848) feasible=5/6 | N_max C/A: 0.001_11: 3.11 (A 1.0e+06, C 3.1e+06), 0.001_13: 2.47 (A 1.3e+07, C 3.2e+07), 0.0005_11: 2.30 (A 4.8e+07, C 1.1e+08), 0.0005_13: 0.65 (A 7.3e+08, C 4.8e+08)
+[scale_noD5] u=0.0333 (rho=1): saving=(-0.138, 0.098) feasible=5/6 | N_max C/A: 0.001_11: 1.07 (A 1.2e+05, C 1.3e+05), 0.001_13: 0.93 (A 1.5e+06, C 1.4e+06), 0.0005_11: 0.57 (A 5.2e+06, C 3.0e+06), 0.0005_13: 0.05 (A 1.1e+08, C 6.0e+06)
+[scale_noD5] u=0.1 (rho=3): saving=(0.125, 0.28) feasible=5/6 | N_max C/A: 0.001_11: 1.21 (A 3.0e+05, C 3.7e+05), 0.001_13: 0.85 (A 3.8e+06, C 3.2e+06), 0.0005_11: 0.34 (A 1.3e+07, C 4.6e+06), 0.0005_13: 0.02 (A 2.7e+08, C 6.2e+06)
+[scale_noD5] u=0.3 (rho=9): saving=(0.288, 0.557) feasible=5/6 | N_max C/A: 0.001_11: 1.58 (A 6.2e+05, C 9.8e+05), 0.001_13: 0.72 (A 7.9e+06, C 5.8e+06), 0.0005_11: 0.19 (A 2.9e+07, C 5.6e+06), 0.0005_13: 0.01 (A 5.1e+08, C 6.3e+06)
+[scale_noD5] u=1 (rho=30): saving=(0.71, 0.846) feasible=5/6 | N_max C/A: 0.001_11: 2.41 (A 1.0e+06, C 2.4e+06), 0.001_13: 0.62 (A 1.3e+07, C 7.9e+06), 0.0005_11: 0.13 (A 4.8e+07, C 6.0e+06), 0.0005_13: 0.01 (A 7.3e+08, C 6.3e+06)
 == sensitivity (n_L, f_T, r_route, Gamma_max, precision, spacetime)
---- qmagic.sensitivity_v3 (0s, exit 1)
+--- qmagic.sensitivity_v3 (1s, exit 0)
+07)
+  u=1 growth=d: saving=(0.7140042439695782, 0.8481767378550332, 5) dQ=(0.24990616002758706, 0.39739619719918007)
 
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/sensitivity_v3.py", line 6, in <module>
-    base = json.load(open(find("params_v3.json"))); base["cultivate"] = [s for s in base["cultivate"] if not s.get("scaled")]
-                          ~~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/paths.py", line 11, in find
-    raise FileNotFoundError(f"{name} not found in {RESULTS}, {DATA} or cwd")
-FileNotFoundError: params_v3.json not found in /Users/deeptell01/Documents/alterego/personal/qmagic-repro/results, /Users/deeptell01/Documents/alterego/personal/qmagic-repro/data or cwd
+spacetime objective QTG = Q * T_cycles (samples included): C/A over p in {1e-3,5e-4}, N in {1e4,1e5,1e6}, d_max=11, f_T=0.3
+  u=0.0333: 5 points, QTG_C/QTG_A in [0.70, 0.90], C better at 5
+  u=0.1: 5 points, QTG_C/QTG_A in [0.62, 0.76], C better at 5
+  u=0.3: 5 points, QTG_C/QTG_A in [0.40, 0.54], C better at 5
+  u=1: 5 points, QTG_C/QTG_A in [0.18, 0.30], C better at 5
 
+worked example p=1e-3, N=1e5, f_T=0.3, Gamma<=100, d_max=11:
+  u=0.0333 B0: infeasible
+  u=0.0333 A : d=11 Q=  62100 = data  55902 + supply   6198 (k=3) | Gamma=  30.0 | src=15to1_11,5,5 | T_cycles=9.90e+06 QTG=6.15e+11
+  u=0.0333 B : infeasible
+  u=0.0333 C : d=11 Q=  56041 = data  55902 + supply    139 (k=0) | Gamma=  45.3 | src=cult_d1=3_d2=7_att3.4 | T_cycles=1.49e+07 QTG=8.38e+11
+  u=0.1 B0: infeasible
+  u=0.1 A : d=11 Q=  74496 = data  55902 + supply  18594 (k=9) | Gamma=   3.8 | src=15to1_11,5,5 | T_cycles=4.19e+05 QTG=3.12e+10
+  u=0.1 B : infeasible
+  u=0.1 C : d=11 Q=  56231 = data  55902 + supply    329 (k=0) | Gamma=  53.8 | src=cult_d1=3_d2=7_att2.7 | T_cycles=5.91e+06 QTG=3.32e+11
+  u=1 B0: infeasible
+  u=1 A : d=11 Q= 190712 = data  55902 + supply 134810 (k=85) | Gamma=  38.8 | src=15to1_9,5,5 | T_cycles=4.27e+05 QTG=8.15e+10
+  u=1 B : infeasible
+  u=1 C : d=9 Q=  41940 = data  37422 + supply   4518 (k=0) | Gamma=  17.8 | src=cult_d1=3_d2=7_att3.0 | T_cycles=1.60e+05 QTG=6.72e+09
 == acceptance cutoff under the mitigation budget
---- qmagic.cutoff_v3 (0s, exit 1)
-
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/cutoff_v3.py", line 9, in <module>
-    prm = json.load(open(find("params_v3.json"))); prm["cultivate"] = [s for s in prm["cultivate"] if not s.get("scaled")]
-                         ~~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/paths.py", line 11, in find
-    raise FileNotFoundError(f"{name} not found in {RESULTS}, {DATA} or cwd")
-FileNotFoundError: params_v3.json not found in /Users/deeptell01/Documents/alterego/personal/qmagic-repro/results, /Users/deeptell01/Documents/alterego/personal/qmagic-repro/data or cwd
-
-== Q3 hardware-Lambda mapping
---- qmagic.q3_lambda (0s, exit 1)
-
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/q3_lambda.py", line 9, in <module>
-    base = json.load(open(find("params_v3.json"))); fit = base["pL_fit"]   # v3: Gidney-noise X+Z calibration
-                          ~~~~^^^^^^^^^^^^^^^^^^
-  File "/Users/deeptell01/Documents/alterego/personal/qmagic-repro/src/qmagic/paths.py", line 11, in find
-    raise FileNotFoundError(f"{name} not found in {RESULTS}, {DATA} or cwd")
-FileNotFoundError: params_v3.json not found in /Users/deeptell01/Documents/alterego/personal/qmagic-repro/results, /Users/deeptell01/Documents/alterego/personal/qmagic-repro/data or cwd
-
-== PEC numerical demo
---- qmagic.pec (493s, exit 0)
-5e-05: sum_eps=0.100 gamma^2=1.492 | Var*M=1.181 (gamma^2-mu^2=1.182) shot_multiplier=1.71  est=+0.5578±0.0024 ideal=+0.5568
-  N=2000 eps=0.00025 eps_T=0.00025: sum_eps=0.500 gamma^2=7.392 | Var*M=7.082 (gamma^2-mu^2=7.081) shot_multiplier=10.26  est=+0.5564±0.0060 ideal=+0.5568
-  N=2000 eps=0.0005 eps_T=0.0005: sum_eps=1.000 gamma^2=54.671 | Var*M=54.389 (gamma^2-mu^2=54.361) shot_multiplier=78.83  est=+0.5311±0.0165 ideal=+0.5568
-  N=4000 eps=0.00025 eps_T=0.0005: sum_eps=1.500 gamma^2=404.304 | Var*M=404.304 (gamma^2-mu^2=404.302) shot_multiplier=405.11  est=-0.0267±0.0450 ideal=-0.0446
-  [exact-expectation estimator, original demo] sum_eps=0.5: Var*M=2.147 = 0.29 gamma^2  <- artefact
-
-(b) bias from misestimated rates (single-shot; PEC uses eps*(1+r)); N=2000, sum eps=0.5, M=4e5
-  r=+0.00: est=+0.5504±0.0042 ideal=+0.5568 bias=-0.0064  rule exp(2 r sum_eps)-1 = +0.0000 (x ideal = +0.0000)
-  r=+0.05: est=+0.5683±0.0044 ideal=+0.5568 bias=+0.0115  rule exp(2 r sum_eps)-1 = +0.0513 (x ideal = +0.0285)
-  r=+0.10: est=+0.5878±0.0047 ideal=+0.5568 bias=+0.0309  rule exp(2 r sum_eps)-1 = +0.1052 (x ideal = +0.0586)
-  r=+0.20: est=+0.6234±0.0052 ideal=+0.5568 bias=+0.0666  rule exp(2 r sum_eps)-1 = +0.2214 (x ideal = +0.1233)
-  r=-0.20: est=+0.4861±0.0034 ideal=+0.5568 bias=-0.0707  rule exp(2 r sum_eps)-1 = -0.1813 (x ideal = -0.1009)
-
-(c) feasibility with bias: sum_eps budget at G_max=100 is ln(100)/4=1.151; the manuscript's rule Sigma*r <= N_e gives Sigma <= 1 at r = N_e = 1e-3
-== gap analysis + fig7
---- qmagic.gap (2s, exit 0)
+--- qmagic.cutoff_v3 (0s, exit 0)
+u=pi/n_L=1: budget-set cutoff (arm C) vs cheapest no-QEM cutoff (arm B) meeting the same N, f_T=0.3, d_max=11
+  p=0.001 N=1e+04: C(QEM) d=7 cult_d1=3_d2=7_att2.1 att=2.12 v=950 Γ=39.0 | B(no QEM) infeasible
+  p=0.001 N=1e+05: C(QEM) d=9 cult_d1=3_d2=7_att3.0 att=3.02 v=1355 Γ=17.8 | B(no QEM) infeasible
+  p=0.001 N=1e+06: C(QEM) d=11 cult_d1=3_d2=11_att3.6 att=3.62 v=3650 Γ=43.7 | B(no QEM) infeasible
+  p=0.0005 N=1e+04: C(QEM) d=5 cult_d1=3_d2=7_att1.4 att=1.43 v=783 Γ=33.1 | B(no QEM) d=11 cult_d1=5_d2=11_deep_att4.6 att=4.59 v=4401 | volume ratio B/C = 5.62
+  p=0.0005 N=1e+05: C(QEM) d=7 cult_d1=3_d2=7_att1.4 att=1.43 v=783 Γ=30.9 | B(no QEM) infeasible
+  p=0.0005 N=1e+06: C(QEM) d=9 cult_d1=3_d2=7_att1.6 att=1.59 v=871 Γ=9.3 | B(no QEM) infeasible
+== hardware-Lambda mapping
+--- qmagic.q3_lambda (1s, exit 0)
+03 N=1e+03: INFEASIBLE
+A  p=1.22e-03 N=1e+03: d=9 Q=117612 (fac 80190) Γ=9.1 src=15to1_7,3,3
+B  p=1.22e-03 N=1e+03: INFEASIBLE
+C  p=1.22e-03 N=1e+03: INFEASIBLE
+B0 p=1.22e-03 N=1e+04: INFEASIBLE
+A  p=1.22e-03 N=1e+04: d=11 Q=193884 (fac 137982) Γ=2.8 src=15to1_9,5,5
+B  p=1.22e-03 N=1e+04: INFEASIBLE
+C  p=1.22e-03 N=1e+04: INFEASIBLE
+B0 p=2.00e-03 N=1e+03: INFEASIBLE
+A  p=2.00e-03 N=1e+03: d=11 Q=217674 (fac 161772) Γ=3.9 src=15to1_9,5,5
+B  p=2.00e-03 N=1e+03: INFEASIBLE
+C  p=2.00e-03 N=1e+03: INFEASIBLE
+B0 p=2.00e-03 N=1e+04: INFEASIBLE
+A  p=2.00e-03 N=1e+04: d=11 Q=335892 (fac 279990) Γ=35.5 src=15to1_11,5,7
+B  p=2.00e-03 N=1e+04: INFEASIBLE
+C  p=2.00e-03 N=1e+04: INFEASIBLE
+B0 p=6.81e-03 N=1e+03: INFEASIBLE
+A  p=6.81e-03 N=1e+03: INFEASIBLE
+B  p=6.81e-03 N=1e+03: INFEASIBLE
+C  p=6.81e-03 N=1e+03: INFEASIBLE
+B0 p=6.81e-03 N=1e+04: INFEASIBLE
+A  p=6.81e-03 N=1e+04: INFEASIBLE
+B  p=6.81e-03 N=1e+04: INFEASIBLE
+C  p=6.81e-03 N=1e+04: INFEASIBLE
+B0 p=8.11e-03 N=1e+03: INFEASIBLE
+A  p=8.11e-03 N=1e+03: INFEASIBLE
+B  p=8.11e-03 N=1e+03: INFEASIBLE
+C  p=8.11e-03 N=1e+03: INFEASIBLE
+B0 p=8.11e-03 N=1e+04: INFEASIBLE
+A  p=8.11e-03 N=1e+04: INFEASIBLE
+B  p=8.11e-03 N=1e+04: INFEASIBLE
+C  p=8.11e-03 N=1e+04: INFEASIBLE
+B0 p=1.11e-02 N=1e+03: INFEASIBLE
+A  p=1.11e-02 N=1e+03: INFEASIBLE
+B  p=1.11e-02 N=1e+03: INFEASIBLE
+C  p=1.11e-02 N=1e+03: INFEASIBLE
+B0 p=1.11e-02 N=1e+04: INFEASIBLE
+A  p=1.11e-02 N=1e+04: INFEASIBLE
+B  p=1.11e-02 N=1e+04: INFEASIBLE
+C  p=1.11e-02 N=1e+04: INFEASIBLE
+== PEC: exact propagation (variance identity, bias)
+--- qmagic.pec_exact (0s, exit 0)
+(a) exact: gamma^2 vs exp(4 sum eps), Var*M = gamma^2 - mu^2, shot multiplier
+  N=2000 eps=5e-05 eps_T=5e-05: sum_eps=0.100 gamma^2=1.492 exp(4S)=1.492 Var*M=1.182 shot_multiplier=1.71 mean=+0.5568 ideal=+0.5568
+  N=2000 eps=0.00025 eps_T=0.00025: sum_eps=0.500 gamma^2=7.392 exp(4S)=7.389 Var*M=7.081 shot_multiplier=10.26 mean=+0.5568 ideal=+0.5568
+  N=2000 eps=0.0005 eps_T=0.0005: sum_eps=1.000 gamma^2=54.671 exp(4S)=54.598 Var*M=54.361 shot_multiplier=78.79 mean=+0.5568 ideal=+0.5568
+  N=4000 eps=0.00025 eps_T=0.0005: sum_eps=1.500 gamma^2=404.304 exp(4S)=403.429 Var*M=404.302 shot_multiplier=405.11 mean=-0.0446 ideal=-0.0446
+(b) exact bias from misestimated rates, N=2000, sum eps=0.5
+  r=+0.00: mean=+0.55682 ideal=+0.55682 bias=-0.00000  Sigma*r*ideal=+0.00000
+  r=+0.05: mean=+0.57435 ideal=+0.55682 bias=+0.01752  Sigma*r*ideal=+0.01392
+  r=+0.10: mean=+0.59242 ideal=+0.55682 bias=+0.03560  Sigma*r*ideal=+0.02784
+  r=+0.20: mean=+0.63031 ideal=+0.55682 bias=+0.07349  Sigma*r*ideal=+0.05568
+  r=-0.20: mean=+0.49193 ideal=+0.55682 bias=-0.06489  Sigma*r*ideal=-0.05568
+elapsed 0.45 s
+== gap analysis + figure
+--- qmagic.gap (0s, exit 0)
 91e-07  ratio 2.70
      cutoff>=59 dB: meas 4.45e-07 (25 err)  pred 1.29e-06  ratio 2.91
      cutoff>=44 dB: meas 3.57e-06 (202 err)  pred 5.09e-06  ratio 1.43
@@ -184,8 +194,8 @@ gap-conditioned re-weighting: max variance ratio (mean-channel / gap-conditioned
   d1=5,d2=13,p=0.001        : 1.000064
   d1=5,d2=15,p=0.001        : 1.000062
 fig7 written
-== noise-model cost comparison + fig9
---- qmagic.noise_costmodel (2s, exit 0)
+== noise-model comparison + figure
+--- qmagic.noise_costmodel (1s, exit 0)
 model              A     p_th      s pts maxratio  Λ(1e-3)  pL(11,1e-3)
 uniform        0.315   0.0096  0.992   8     1.13      9.5     4.41e-07
 biased_10      0.070   0.0052  0.985   8     1.10      5.0     4.31e-06
@@ -195,78 +205,40 @@ erasure_0.9    0.287   0.0495  0.987   3     1.00     47.1     2.63e-11
 
 [u=pi/n_L=1, d_max=11, p=1e-3, f_T=0.3, v4 conventions]
 model        | dist floor cult floor |  N_max A  N_max C   C/A | saving C vs A at N=1e4/1e5/1e6 (d_A->d_C) | cultivation re-simulated?
-uniform      |    3.1e-06    7.0e-08 |  6.8e+05  1.8e+06  2.63 | +0.85(11->7)  +0.82(11->9)  A✗ | True
-biased_10    |    2.7e-05    1.4e-05 |  7.5e+04  1.1e+05  1.40 | +0.74(11->9)  A✗  A✗ | True
-biased_100   |    4.0e-05    2.1e-05 |  5.0e+04  7.1e+04  1.42 | +0.76(11->9)  A✗  A✗ | True
-erasure_0.5  |    1.2e-07    7.0e-08 |  1.8e+07  2.6e+07  1.40 | +0.80(9->5)  +0.76(9->7)  +0.74(11->9) | False
-erasure_0.9  |    1.1e-08    7.0e-08 |  3.1e+08  4.7e+07  0.15 | +0.73(7->5)  +0.69(7->5)  +0.59(7->7) | False
+uniform      |    3.1e-06    3.7e-06 |  8.0e+05  7.0e+05  0.87 | +0.85(11->7)  +0.82(11->9)  A✗ | True
+biased_10    |    2.7e-05    1.4e-05 |  1.2e+05  2.2e+05  1.85 | +0.83(11->7)  +0.81(11->9)  A✗ | True
+biased_100   |    4.0e-05    2.1e-05 |  8.1e+04  1.5e+05  1.91 | +0.84(11->7)  A✗  A✗ | True
+erasure_0.5  |    1.2e-07    3.7e-06 |  2.8e+06  7.0e+05  0.25 | +0.71(9->7)  +0.65(11->9)  C✗ | False
+erasure_0.9  |    1.1e-08    3.7e-06 |  3.1e+06  7.0e+05  0.22 | +0.58(7->7)  +0.49(11->9)  C✗ | False
 fig9 written
-== fig6
---- qmagic.fig6_d2scan (2s, exit 0)
+== figure: d2 scan
+--- qmagic.fig6_d2scan (1s, exit 0)
 fig6 written
-== fig10
---- qmagic.fig10_unified (2s, exit 0)
+== figure: savings and circuit size
+--- qmagic.fig10_unified (0s, exit 0)
 fig10 written
-== fig11
---- qmagic.fig11_floors (2s, exit 0)
+== figure: floors
+--- qmagic.fig11_floors (1s, exit 0)
 fig11 written
-== legacy costmodel (params_corr_d2 -> results.csv)
---- qmagic.costmodel (1s, exit 0)
-(data   78078 + fac     440) G= 714.66 red=+nan [est]   | dQ(C-A)=+nan G_C/G_A=0.32
-B0 p=0.0005 dmax=25 N=1e+10 fT=0.3  Gmax=100    INFEASIBLE 
-A  p=0.0005 dmax=25 N=1e+10 fT=0.3  Gmax=100    INFEASIBLE 
-B  p=0.0005 dmax=25 N=1e+10 fT=0.3  Gmax=100    INFEASIBLE 
-C  p=0.0005 dmax=25 N=1e+10 fT=0.3  Gmax=100    d=13 cult_d1=5_d2=11scaled_att8 Q=   78703 (data   78078 + fac     625) G=  20.86 red=+nan [est]   | dQ(C-A)=+nan G_C/G_A=nan
-B0 p=0.0005 dmax=25 N=1e+10 fT=0.3  Gmax=10000  INFEASIBLE 
-A  p=0.0005 dmax=25 N=1e+10 fT=0.3  Gmax=10000  INFEASIBLE 
-B  p=0.0005 dmax=25 N=1e+10 fT=0.3  Gmax=10000  INFEASIBLE 
-C  p=0.0005 dmax=25 N=1e+10 fT=0.3  Gmax=10000  d=13 cult_d1=5_d2=11scaled_att7 Q=   78575 (data   78078 + fac     497) G=4071.83 red=+nan [est]   | dQ(C-A)=+nan G_C/G_A=nan
-B0 p=0.0005 dmax=25 N=1e+10 fT=1.0  Gmax=100    INFEASIBLE 
-A  p=0.0005 dmax=25 N=1e+10 fT=1.0  Gmax=100    INFEASIBLE 
-B  p=0.0005 dmax=25 N=1e+10 fT=1.0  Gmax=100    INFEASIBLE 
-C  p=0.0005 dmax=25 N=1e+10 fT=1.0  Gmax=100    d=13 cult_d1=5_d2=11scaled_att10 Q=   78779 (data   78078 + fac     701) G=  76.14 red=+nan [est]   | dQ(C-A)=+nan G_C/G_A=nan
-B0 p=0.0005 dmax=25 N=1e+10 fT=1.0  Gmax=10000  INFEASIBLE 
-A  p=0.0005 dmax=25 N=1e+10 fT=1.0  Gmax=10000  INFEASIBLE 
-B  p=0.0005 dmax=25 N=1e+10 fT=1.0  Gmax=10000  INFEASIBLE 
-C  p=0.0005 dmax=25 N=1e+10 fT=1.0  Gmax=10000  d=13 cult_d1=5_d2=11scaled_att8 Q=   78703 (data   78078 + fac     625) G= 111.17 red=+nan [est]   | dQ(C-A)=+nan G_C/G_A=nan
-== legacy Q5 N_max frontier
---- qmagic.q5_nmax (1s, exit 0)
-+05 | 17
-  0.001    9  0.3 |  3.50e+02  4.02e+05  6.10e+02  7.02e+05 |  1.7 | 6.9e-06 / 2.8e-06 | 1.7e+05 / 4.1e+05 | 2
-  0.001   11  0.1 |  8.13e+03  9.36e+06  1.41e+04  1.62e+07 |  1.7 | 5.2e-07 / 7.9e-10 | 2.2e+06 / 1.5e+09 | 661
-  0.001   11  0.3 |  4.40e+03  5.07e+06  1.41e+04  1.62e+07 |  3.2 | 5.2e-07 / 7.9e-10 | 2.2e+06 / 1.5e+09 | 661
-  0.001   11    1 |  1.69e+03  1.95e+06  1.40e+04  1.61e+07 |  8.3 | 5.2e-07 / 7.9e-10 | 2.2e+06 / 1.5e+09 | 661
-  0.001   13  0.3 |  6.15e+03  7.08e+06  1.51e+05  1.74e+08 | 24.6 | 5.2e-07 / 7.9e-10 | 2.2e+06 / 1.5e+09 | 661
-  0.001   15  0.3 |  1.82e+05  2.10e+08  1.24e+06  1.42e+09 |  6.8 | 1.6e-08 / 7.9e-10 | 7.0e+07 / 1.5e+09 | 21
- 0.0005    7  0.3 |  5.68e+02  6.54e+05  1.42e+03  1.63e+06 |  2.5 | 3.9e-06 / 3.5e-07 | 3.0e+05 / 3.3e+06 | 11
- 0.0005    9  0.3 |  1.00e+04  1.15e+07  9.54e+03  1.10e+07 |  1.0 | 2.4e-07 / 2.6e-07 | 4.8e+06 / 4.5e+06 | 1
- 0.0005   11  0.1 |  4.31e+05  4.97e+08  7.89e+05  9.08e+08 |  1.8 | 1.1e-08 / 4.3e-11 | 1.1e+08 / 2.7e+10 | 244
- 0.0005   11  0.3 |  2.26e+05  2.60e+08  7.83e+05  9.02e+08 |  3.5 | 1.1e-08 / 4.3e-11 | 1.1e+08 / 2.7e+10 | 244
- 0.0005   11    1 |  8.47e+04  9.75e+07  7.65e+05  8.81e+08 |  9.0 | 1.1e-08 / 4.3e-11 | 1.1e+08 / 2.7e+10 | 244
- 0.0005   13  0.3 |  3.10e+05  3.57e+08  1.41e+07  1.62e+10 | 45.4 | 1.1e-08 / 4.3e-11 | 1.1e+08 / 2.7e+10 | 244
- 0.0005   15  0.3 |  2.45e+06  2.83e+09  6.39e+07  7.36e+10 | 26.1 | 1.3e-09 / 4.3e-11 | 8.5e+08 / 2.7e+10 | 31
-fig4_nmax_corr_d2.png written
-== legacy Q1 pivot
---- qmagic.pivot (0s, exit 0)
-  416)* | C d 7  22750(  112)  | +0.09 +0.037  1.56
-0.0005 1e+05 0.3 | B0 d11  62100( 6198)  | A d 7  25068( 2430)  | B d11  56365(  463)* | C d 7  22750(  112)  | +0.09 +0.037  3.81
-0.0005 1e+05 1.0 | B0                  -- | A d 7  25068( 2430)  | B d11  56422(  520)* | C d 7  22762(  124)  | +0.09 +0.032  0.35
-0.0005 1e+06 0.1 | B0                  -- | A d 7  25068( 2430)  | B                  -- | C d 7  22762(  124)  | +0.09 +0.025  0.35
-0.0005 1e+06 0.3 | B0                  -- | A d 7  26076( 3438)  | B                  -- | C d 7  22762(  124)  | +0.13 +0.035  2.35
-0.0005 1e+06 1.0 | B0                  -- | A d 7  26076( 3438)  | B                  -- | C d 7  22776(  138)  | +0.13 +nan  0.79
-0.0005 1e+08 0.1 | B0                  -- | A d11  62100( 6198)  | B                  -- | C d11  56318(  416)* | +0.09 +nan  2.35
-0.0005 1e+08 0.3 | B0                  -- | A d11  62100( 6198)  | B                  -- | C d11  56318(  416)* | +0.09 +nan 13.05
-0.0005 1e+08 1.0 | B0                  -- | A                  -- | B                  -- | C d11  56422(  520)* | +nan +nan   nan
-0.0005 1e+10 0.1 | B0                  -- | A                  -- | B                  -- | C                  -- | +nan +nan   nan
-0.0005 1e+10 0.3 | B0                  -- | A                  -- | B                  -- | C                  -- | +nan +nan   nan
-0.0005 1e+10 1.0 | B0                  -- | A                  -- | B                  -- | C                  -- | +nan +nan   nan
-== legacy fig1-3
---- qmagic.plots (2s, exit 0)
-figs written
-== legacy fig5
---- qmagic.fig5_q3 (1s, exit 0)
-fig5 written
-== legacy fig8
---- qmagic.fig8_bias (1s, exit 0)
-fig8 written
-FAILED steps: 6
+== manuscript numbers and table bodies
+--- qmagic.paper_numbers (0s, exit 0)
+246 macros; tables: ['tab_calib.tex', 'tab_example.tex', 'tab_nmax.tex', 'tab_noise.tex', 'tab_pl.tex', 'tab_rt.tex', 'tab_sens.tex', 'tab_u.tex']
+== verify against reference/
+--- qmagic.verify (0s, exit 0)
+ok       claims_v3.json
+ok       factories_2level_d11.json
+ok       factories_d11.json
+ok       gap_qem.json
+ok       noise_costmodel.json
+ok       numbers.json
+ok       pL_table.json
+ok       params_corr.json
+ok       params_corr_d2.json
+ok       params_q3.json
+ok       params_v3.json
+ok       pec_exact.json
+ok       q3_nmax.csv
+ok       results_corr.csv
+ok       sensitivity_v3.json
+VERIFIED
+DONE
