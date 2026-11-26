@@ -117,7 +117,7 @@ open(OUT / "tab_calib.tex", "w").write("\n".join(rows) + "\n")
 # ---- sensitivity table
 lab = [("baseline", "nL=100"), ("$n_L=20$", "nL=20"), ("$n_L=300$", "nL=300"), ("$f_T=0.1$", "fT=0.1"), ("$f_T=1$", "fT=1.0"), ("$r_{\\rm route}=1.5$", "r=1.5"), ("$r_{\\rm route}=3$", "r=3.0"),
        ("$\\Gamma_{\\max}=10$", "G=10"), ("$\\Gamma_{\\max}=10^{4}$", "G=10000"), ("$r=10^{-2}$ ($\\Sigma\\le0.1$)", "r=1e-2"), ("routing tiles charged, $\\kappa(u)$", "kappa=route"),
-       ("growth, $d$ rounds at $d_2$", "growth=d"), ("pessimistic proxy correction", "proxy=scale"), ("sampled proxy values, uncorrected", "proxy=none"), ("$r_T=0.3$", "rT=0.3")]
+       ("growth, $d$ rounds at $d_2$", "growth=d"), ("pessimistic proxy correction", "proxy=scale"), ("sampled proxy values, no correction", "proxy=none"), ("$r_T=0.3$", "rT=0.3")]
 rows = []
 for name, k in lab:
     cells = []
