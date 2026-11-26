@@ -44,8 +44,8 @@ Where the paper's numbers come from:
 | Fig. 1 (error floors) | `params_v3.json`, `factories_2level_d11.json`, `data/wan_zapirain_2026.json` |
 | Fig. 2 (cultivation at small escape distance) | `data/cultiv_*.json`, `data/gidney2024_fig1_points.json` |
 | Tables 3–6, Fig. 3 | `claims_v3.json`, `sensitivity_v3.json` (from `params_v3.json`) |
-| Table 8 (sensitivity) | `sensitivity_v3.json` |
-| Hardware mapping, Table 9 (noise models) | `q3_nmax.csv`, `noise_costmodel.json` |
+| Appendix D (sensitivity table) | `sensitivity_v3.json` |
+| Hardware mapping, Appendix E (noise-model table) | `q3_nmax.csv`, `noise_costmodel.json` |
 | Appendix F (decoder gap), Appendix G (bias of error cancellation) | `gap_qem.json`, `pec_exact.json` |
 
 ## Two inputs that need care
